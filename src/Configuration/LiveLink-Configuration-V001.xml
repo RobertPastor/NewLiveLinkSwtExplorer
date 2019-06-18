@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+
+	<livelinkNodes>
+	
+		<livelinkNode>
+			<description></description>
+			<comment>ensure that XML special characters are escaped such as &amp; </comment>
+			<livelinkURL>http://atmosphere.tatm.thales/livelink/livelink.exe?func=ll&amp;objId=62656137&amp;objAction=browse&amp;sort=name</livelinkURL>
+		</livelinkNode>
+
+		<livelinkNode>
+			<description></description>
+			<comment>ensure that URL separator such as XML special characters are escaped such as &amp; </comment>
+			<livelinkURL>http://atmosphere.tatm.thales/livelink/livelink.exe?func=ll&amp;objId=3536159&amp;objAction=browse</livelinkURL>
+		</livelinkNode>
+		
+		<livelinkNode>
+			<description></description>
+			<comment>ensure that URL separator such as XML special characters are escaped such as &amp; </comment>
+			<livelinkURL>http://atmosphere.tatm.thales/livelink/livelink.exe?func=ll&amp;objId=23287863&amp;objAction=browse</livelinkURL>
+		</livelinkNode>
+		
+		
+	</livelinkNodes>
+	
+

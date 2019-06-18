@@ -1,0 +1,129 @@
+/* ******************************************************************************
+ * Copyright (c) 2005 Scott Stanchfield, http://javadude.com
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *   Based on the ANTLR parser generator by Terence Parr, http://antlr.org
+ *******************************************************************************/
+header {
+package com.javadude.antxr.sample;
+
+import java.util.List;
+import java.util.ArrayList;
+}
+
+class LiveLinkParser extends Parser;
+
+/*
+* the XML document starts with a LiveLink tag
+*/
+document returns [LiveLinkXmlExport llexport = null]
+	: llexport=<livelink> EOF;
+
+/*
+* the LiveLink tag has two attributes : an appversion and a src
+* this tag is followed by one and only one LiveLink node
+* Other nodes are children of this very first LiveLink node
+*/
+<livelink> returns [LiveLinkXmlExport llexport = new LiveLinkXmlExport()] 
+	{	
+		LiveLinkNode llnode=null;
+		LiveLinkVolume llvolume=null;
+		llexport.setSrc(@src);
+		llexport.setAppVersion(@appversion);
+		
+	}
+	:	(llnode=<llnode> {llexport.setLiveLinkNode(llnode);}
+		| llvolume=<llvolume> {llexport.setLiveLinkVolume(llvolume);}
+		)*
+	;
+
+/*
+* this tag is found only once at the root of the Livelink volume
+*/
+<llvolume> returns [LiveLinkVolume llvolume = new LiveLinkVolume() ]
+	{
+		LiveLinkNode llnode=null;
+		LiveLinkNodeSet children = new LiveLinkNodeSet(llvolume);
+		llvolume.setName(@name);
+		llvolume.setChildren(children);
+	}
+	: (llnode=<llnode> {children.add(llnode);}
+		| otherTag )*
+	;
+
+/*
+* a LiveLink node may contain several LiveLink nodes as children
+* and may be either a specific LiveLink node such as a ShortCut or an URL
+*/ 
+<llnode> returns [LiveLinkNode p = new LiveLinkNode() ]
+	{
+		LiveLinkNode llnode = null;
+		LiveLinkShortCut llShortCut = null;
+		LiveLinkRedirectURL llRedirectURL = null;
+		LiveLinkNodeSet children = new LiveLinkNodeSet(p);
+		p.setChildren(children);
+		p.setId(@id);
+		p.setName(@name);
+		p.setCreatedDate(@created);
+		p.setModifiedDate(@modified);
+		p.setDescription(@description);
+		p.setCreatedByName(@createdbyname);
+		p.setOwnedByName(@ownedbyname);
+		p.setMimeType(@mimetype);
+		p.setSize(@size);
+		p.setObjectName(@objname);
+		p.setParentId(@parentid);
+	}
+	:	( llnode=<llnode> {children.add(llnode);}
+		|
+			llShortCut=<originalnode> {p.setLiveLinkShortCut(llShortCut);}
+		|
+			llRedirectURL=<uri> {p.setLiveLinkRedirectURL(llRedirectURL);}
+		|
+			otherTag
+		)*
+	;
+
+/*
+* if the LiveLink node is a ShortCut , 
+* an <originalnode> tag contains the LiveLink node id of the shortcut
+*/
+<originalnode> returns [LiveLinkShortCut llShortcut = new LiveLinkShortCut() ]
+	{
+		String originalNodeId = "";
+		llShortcut.setName(@name);
+		llShortcut.setPath(@path);
+	}
+	:	pcData:PCDATA 
+	{
+	originalNodeId = pcData.getText();
+	llShortcut.setOriginalNodeId(originalNodeId);
+	}
+	;
+
+/*
+* if the LiveLink node is an URL,
+* a <uri> string tag contains the URL to the redirected location
+*/
+<uri> returns [LiveLinkRedirectURL llRedirectURL = new LiveLinkRedirectURL() ]
+	{
+		String uri = "";
+	}
+	: 	pcData:PCDATA 
+		{
+		uri = pcData.getText();
+		llRedirectURL.setURI(uri);
+		}
+	;
+
+otherTag
+	:	other:OTHER_TAG
+		(	otherTag
+		|	pcData:PCDATA
+		)*
+		XML_END_TAG
+	;

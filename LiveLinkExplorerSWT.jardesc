@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="WINDOWS-1252" standalone="no"?>
+<jardesc>
+    <jar path="D:/Users/T0007330/Documents/Mes Outils Personnels/Web Applets/LiveLink SWT Explorer Applet/LiveLinkExplorerSWT.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/NewLiveLinkSwtExplorer/LiveLinkExplorerSWT.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="false" overwrite="true" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="false" mainClassHandleIdentifier="=NewLiveLinkSwtExplorer/src&lt;Main{MainMainLiveLinkSwtExplorer.java[MainMainLiveLinkSwtExplorer" manifestLocation="/NewLiveLinkSwtExplorer/LiveLinkSwtExplorer.manifest" manifestVersion="1.0" reuseManifest="true" saveManifest="true" usesManifest="true">
+        <sealing sealJar="true">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.common.log"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.format"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.biff.formula"/>
+        <folder path="/antlr-2.7.5/src"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.common"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.read.biff"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.write"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.write.biff"/>
+        <file path="/NewLiveLinkSwtExplorer/.project"/>
+        <javaElement handleIdentifier="=ANTXR Sample/generated"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.biff"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.biff.drawing"/>
+        <folder path="/NewLiveLinkSwtExplorer/lib"/>
+        <javaElement handleIdentifier="=de.kupzog.KTable/src"/>
+        <javaElement handleIdentifier="=NewLiveLinkSwtExplorer/src"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl.demo"/>
+        <folder path="/ANTXR Sample/antxr-generated"/>
+        <file path="/NewLiveLinkSwtExplorer/.classpath"/>
+        <javaElement handleIdentifier="=com.javadude.antxr/generated"/>
+        <javaElement handleIdentifier="=com.javadude.antxr/src"/>
+        <file path="/NewLiveLinkSwtExplorer/LiveLinkExplorerSWT.jardesc"/>
+        <javaElement handleIdentifier="=jexcelapi_2_6_12/&lt;jxl"/>
+        <folder path="/antlr-2.7.5/antlr"/>
+        <javaElement handleIdentifier="=ANTXR Sample/src"/>
+    </selectedElements>
+</jardesc>

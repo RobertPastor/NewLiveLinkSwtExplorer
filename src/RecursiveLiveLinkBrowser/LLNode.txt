@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+
+  <llnode created='2002-12-17T16:15:17' createdby='19082' createdbyname='RIBE veronique' description='This folder implements the "safety CSCI folder" as described in IPD-315/09. It shall be filled with evidences according to the SWAL level(s) of the software components. When evidences are available in another part of the SWPF, or in program or segment folder, or in the work package baseline, only a link (or reference) is required. Specific evidences (such as &quot;safety&quot; checklist) are stored in this folder.' id='54433802' modified='2013-07-17T09:10:54' name='11 - Work package safety folder (GREEN)' objname='Folder' objtype='0' ownedby='19082' ownedbyname='RIBE veronique' parentid='54433795' size='7'>
+    <Nickname domain=''></Nickname>
+    <MajorMinorContainer>false</MajorMinorContainer>
+    
+   <llnode created='2002-12-19T17:17:38' createdby='19082' createdbyname='RIBE veronique' description='This folder implements the "safety CSCI folder" as described " id='54439181' modified='2012-05-31T10:12:48' name='11.01 - Environment' objname='Folder' objtype='0' ownedby='19082' ownedbyname='RIBE veronique' parentid='54433802' size='0'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+  </llnode>
+
+    <llnode created='2002-12-19T17:18:06' createdby='19082' createdbyname='RIBE veronique' description='' id='54439182' modified='2012-05-31T10:12:57' name='11.02 - System safety assessment context' objname='Folder' objtype='0' ownedby='19082' ownedbyname='RIBE veronique' parentid='54433802' size='0'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+
+    <llnode created='2002-12-19T17:20:16' createdby='19082' createdbyname='RIBE veronique' description='' id='54439187' modified='2017-05-31T09:29:42' name='11.07 - Assurances' objname='Folder' objtype='0' ownedby='19082' ownedbyname='RIBE veronique' parentid='54433802' size='0'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+
+  </llnode>
+</livelink>
