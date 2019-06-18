@@ -82,7 +82,6 @@ public class OleWebBrowserTab extends CTabItem {
 	private LiveLinkObjectImageFactory llObjectImageFactory = null;
 	
 	private LiveLinkNode rootNode = null;
-	//private Composite tableComp = null;
 	
 	// these are the composites that are also observer of any changes to the reference LiveLinkNode
 	private NavigationAreaCompositeObserver navigationAreaComposite = null;

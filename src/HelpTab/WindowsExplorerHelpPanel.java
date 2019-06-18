@@ -89,6 +89,9 @@ public class WindowsExplorerHelpPanel extends Composite {
 		
 		text += "This command creates an EXCEL file , named for instance <b><i>FileExplorer_13_déc._2012_16_25_09.xls</i></b> and <br>";
 		text += "containing the first level of files and folders located beneath the selected node.<br>";
+		text += "<br>";
+
+		text += "Warning : as the underlying EXCEL is 2003 version, the number of rows cannot exceed 65500 rows.<br>";
 		
 		text += "<h2>=================</h2>";
 		text += "<h2>Recursive Export from Selected Windows Explorer node</h2>";

@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -46,6 +47,16 @@ public class StatusBarObserver extends Composite implements Observer {
 		
 		this.fileExplorerStatus = new Label(this, SWT.BORDER | SWT.FILL);
 		
+		gridData = new GridData();
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.verticalAlignment = SWT.CENTER;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = false;
+		
+		this.fileExplorerStatus.setLayoutData(gridData);
+		
+		Color color = parent.getDisplay().getSystemColor(SWT.COLOR_INFO_BACKGROUND);
+		this.fileExplorerStatus.setBackground(color);
 	}
 
 	@Override
