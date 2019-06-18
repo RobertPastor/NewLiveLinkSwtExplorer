@@ -181,7 +181,7 @@ public class FileExplorerTab extends CTabItem {
 
 		//=======================================================================
 
-/*		setFolderButton = new Button(this.locationComposite, SWT.PUSH);
+		/*		setFolderButton = new Button(this.locationComposite, SWT.PUSH);
 		setFolderButton.setText("Set as Preferred Folder");
 
 		GridData gridDataThree = new GridData();
@@ -201,7 +201,7 @@ public class FileExplorerTab extends CTabItem {
 				} else {
 					logger.log(Level.SEVERE, "location: " + locationText.getText() + " is not a valid directory !!!");
 				}
-				
+
 				logger.log(Level.INFO,"===========setFolderButton Button==========");
 			}
 		});*/
@@ -224,9 +224,8 @@ public class FileExplorerTab extends CTabItem {
 		this.mainSashFormComposite.setLayout(layout);
 
 		//========================================================================
-		GridData gridData = new GridData();
 
-		gridData = new GridData(SWT.FILL|SWT.HORIZONTAL|SWT.VERTICAL);
+		GridData gridData = new GridData(SWT.FILL|SWT.HORIZONTAL|SWT.VERTICAL);
 		gridData.horizontalSpan = 1;
 		gridData.grabExcessHorizontalSpace  = true;
 		gridData.grabExcessVerticalSpace  = true;
@@ -291,7 +290,7 @@ public class FileExplorerTab extends CTabItem {
 		fileTree.setLayoutData(gridDataOne);
 
 	}
-	
+
 	private void initTable() {
 		//==========================
 		tableComp = new Composite(this.sashForm, SWT.FILL | SWT.BORDER);
@@ -362,7 +361,7 @@ public class FileExplorerTab extends CTabItem {
 
 		this.fileKTable.addCellSelectionListener(
 				new KTableCellSelectionListener() 	{
-					
+
 					public void cellSelected(int col, int row, int statemask) {
 						// the idea is to map the row index back to the model index since the given row index
 						// changes when sorting is done.
@@ -483,7 +482,7 @@ public class FileExplorerTab extends CTabItem {
 										FileExplorerTab.this.parent.getShell(),
 										"Error - EXCEL 2003 - row index exceeds max rows number");	
 							}
-							
+
 						}					
 					}
 				}
@@ -608,7 +607,7 @@ public class FileExplorerTab extends CTabItem {
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = SWT.FILL;
 		gridData.verticalAlignment = SWT.FILL;
-		
+
 		// composite grows horizontally
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.grabExcessVerticalSpace = false;
@@ -617,17 +616,17 @@ public class FileExplorerTab extends CTabItem {
 		// Add a label for displaying status messages as they are received from the control
 		//this.analysisStatus = new Label(lastRowComposite, SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
 		this.analysisStatus = new StatusBarObserver(lastRowComposite, SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
-		
+
 		gridData = new GridData(GridData.FILL_HORIZONTAL | GridData.VERTICAL_ALIGN_FILL);
 		gridData.horizontalSpan = 2;
 		// text grows horizontally with the frame
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.grabExcessVerticalSpace = false;
-		
+
 		this.analysisStatus.setToolTipText("status message");
 		this.analysisStatus.setText("... In the Tree view, click on on Folder to open it ...");
 		//this.analysisStatus.setLayoutData(gridData);
-		
+
 		Color greenColor = parent.getDisplay().getSystemColor(SWT.COLOR_GREEN);
 		//this.analysisStatus.setBackground(greenColor);
 
@@ -709,9 +708,9 @@ public class FileExplorerTab extends CTabItem {
 	 * this function is used after a file down-load from LiveLink to refresh the currently displayed table
 	 */
 	public void updateSelectedRootTable() {
-		
+
 		disposeTableContextMenu();
-		
+
 		if (this.root != null) {
 			logger.log(Level.INFO, " update root: "+ this.root.getAbsolutePath());
 			FileExplorerTab.this.parent.getDisplay().syncExec(new Runnable() {

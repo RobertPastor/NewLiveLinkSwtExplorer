@@ -68,10 +68,13 @@ public class StatusBarObserver extends Composite implements Observer {
 			logger.log(Level.INFO, " ---------- observer received a notification ------------- "  );
 			logger.info(fileObservable.getFile().getName());
 			this.fileExplorerStatus.setText( fileObservable.getFile().getName());
+			
 			this.fileExplorerStatus.update();
 			this.fileExplorerStatus.redraw();
 			this.update();
 			this.redraw();
+			this.parent.update();
+			this.parent.redraw();
 
 		}
 	}
