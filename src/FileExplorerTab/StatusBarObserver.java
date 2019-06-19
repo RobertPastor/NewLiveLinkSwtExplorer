@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 import RecursiveLiveLinkBrowser.LiveLinkNodeKTableCompositeObserver;
+import RecursiveLiveLinkBrowser.OleWebBrowserTab;
 
 
 public class StatusBarObserver extends Composite implements Observer {
@@ -67,14 +68,19 @@ public class StatusBarObserver extends Composite implements Observer {
 			FileObservable fileObservable = (FileObservable) observable;
 			logger.log(Level.INFO, " ---------- observer received a notification ------------- "  );
 			logger.info(fileObservable.getFile().getName());
-			this.fileExplorerStatus.setText( fileObservable.getFile().getName());
 			
-			this.fileExplorerStatus.update();
-			this.fileExplorerStatus.redraw();
-			this.update();
-			this.redraw();
-			this.parent.update();
-			this.parent.redraw();
+			final String fileName = fileObservable.getFile().getName();
+			this.parent.getDisplay().syncExec(new Runnable() {
+				public void run () {
+					StatusBarObserver.this.fileExplorerStatus.setText(fileName );
+					StatusBarObserver.this.fileExplorerStatus.update();
+					StatusBarObserver.this.fileExplorerStatus.redraw();
+					StatusBarObserver.this.update();
+					StatusBarObserver.this.redraw();
+					StatusBarObserver.this.parent.update();
+					StatusBarObserver.this.parent.redraw();
+				}
+			});
 
 		}
 	}
