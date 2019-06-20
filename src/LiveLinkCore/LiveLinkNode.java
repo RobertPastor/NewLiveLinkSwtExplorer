@@ -329,6 +329,13 @@ public class LiveLinkNode extends LiveLinkObject {
 	}
 
 	//===========================================================
+	
+	public LiveLinkNode(LiveLinkURLObservable llObservable) {
+		// TODO Auto-generated constructor stub
+		super(llObservable.getInitialURL());
+		this.browsed = false;
+		this.downloaded = false;
+	}
 
 	public LiveLinkNode (URL url) {
 
@@ -349,7 +356,7 @@ public class LiveLinkNode extends LiveLinkObject {
 
 	//========================================================
 
-	public LiveLinkNode(String strXML,String strURL) {
+	public LiveLinkNode(String strXML, String strURL) {
 		super();
 		this.browsed = false;
 		this.downloaded = false;
@@ -551,6 +558,8 @@ public class LiveLinkNode extends LiveLinkObject {
 		return "";
 	}
 	 */
+
+	
 
 	/**
 	 * any node that is not a leaf may have child nodes .

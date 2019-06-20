@@ -21,10 +21,16 @@ public class MainTestXMLConfigurationFileReader {
 
 			if (xmlConfigurationFile.exists() && !xmlConfigurationFile.isDirectory()) {
 
-				logger.info("file is existing");
+				logger.info("configuration file is existing");
+				XMLConfigurationFileReader xmLConfigurationFileReader = new XMLConfigurationFileReader(filePath);
+				boolean b = xmLConfigurationFileReader.parseXmlFile();
+				if (b) {
+					logger.info("file has been correctly parsed");
+					logger.info("first LLobs= " + xmLConfigurationFileReader.getFirstLiveLinkURL().getLiveLinkObjectId());
+				}
 			}
 
-			XMLConfigurationFileReader xmLConfigurationFileReader = new XMLConfigurationFileReader(filePath);
+			
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			logger.log(Level.SEVERE, "file= " + fileName + " -> error= " + ex.getLocalizedMessage());

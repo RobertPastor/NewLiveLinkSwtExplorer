@@ -40,22 +40,29 @@ public class XMLConfigurationFileReader {
 		if (file.isFile()) {
 			try {
 				this.xmlConfigurationFilePath = file.getCanonicalPath();
-				parseXmlFile();
+
 			} catch (IOException IOex) {
 				logger.log(Level.SEVERE, IOex.getLocalizedMessage());
 			}
-
 		}
 	}
 
 	public XMLConfigurationFileReader(String xmlConfigurationFilePath) {
 		this.xmlConfigurationFilePath = xmlConfigurationFilePath;
 		this.livelinkUrlConfigList = new ArrayList<>();
-		parseXmlFile();
 
 	}
 
-	public void parseXmlFile(){
+	public LiveLinkURLObservable getFirstLiveLinkURL() {
+		if (this.parseXmlFile()) {
+			if (livelinkUrlConfigList.size()>0) {
+				return livelinkUrlConfigList.get(0);
+			}
+		}
+		return null;
+	}
+
+	public boolean parseXmlFile(){
 
 		logger.info( "parse XML File =  " + this.xmlConfigurationFilePath);
 
@@ -76,13 +83,13 @@ public class XMLConfigurationFileReader {
 				Document document = builder.parse(xmlConfigurationFile);
 
 				final Element racine = document.getDocumentElement();
-				logger.info( "root = " + racine.getNodeName());
+				//logger.info( "root = " + racine.getNodeName());
 
 				final NodeList racineNoeuds = racine.getChildNodes();
-				logger.info( "======================");
+				//logger.info( "======================");
 
 				final int nbRacineNoeuds = racineNoeuds.getLength();
-				logger.info( "======================");
+				//logger.info( "======================");
 
 				for (int i = 0; i < nbRacineNoeuds; i++) {
 
@@ -90,33 +97,31 @@ public class XMLConfigurationFileReader {
 
 						final Node configSubNode = racineNoeuds.item(i);
 
-						logger.info( "Element Node name = " + configSubNode.getNodeName());
+						//logger.info( "Element Node name = " + configSubNode.getNodeName());
 
 						if (configSubNode.getNodeName().equalsIgnoreCase("livelinkNode")) {
-							logger.info(" =========== it is a Livelink node ============== ");
-							logger.info("---------- node type is Element Node= " + Boolean.toString(configSubNode.getNodeType() == Node.ELEMENT_NODE));
+							//logger.info(" =========== it is a Livelink node ============== ");
+							//logger.info("---------- node type is Element Node= " + Boolean.toString(configSubNode.getNodeType() == Node.ELEMENT_NODE));
 
 							final NodeList LLnodeSubNodes = configSubNode.getChildNodes();
 							final int nbSubNodes = LLnodeSubNodes.getLength();
 							for (int j = 0 ; j < nbSubNodes ; j++) {
 
-								logger.info( "Element sub Node name = " + LLnodeSubNodes.item(j).getNodeName() );
+								//logger.info( "Element sub Node name = " + LLnodeSubNodes.item(j).getNodeName() );
 								final Node configSubSubNode = LLnodeSubNodes.item(j);
 								if (configSubSubNode.getNodeName().equalsIgnoreCase("livelinkURL") ) {
 
-									logger.info( "Element sub sub Node ---> is  livelinkURL ");
+									//logger.info( "Element sub sub Node ---> is  livelinkURL ");
 									logger.info( "Element sub sub Node ---> is livelinkURL " + configSubSubNode.getFirstChild().getNodeValue());
 									try {
 										URL url = new URL(configSubSubNode.getFirstChild().getNodeValue());
 										LiveLinkURLObservable llUrlObservable = new LiveLinkURLObservable( url );
 										this.livelinkUrlConfigList.add(llUrlObservable);
+
 									} catch (MalformedURLException ex) {
 										ex.printStackTrace();
 									}
-
-
 								}
-
 							}
 						}
 					}
@@ -125,6 +130,12 @@ public class XMLConfigurationFileReader {
 				logger.log(Level.SEVERE, " =========> file is NOT existing = " + this.xmlConfigurationFilePath);
 			}
 
+			if (this.livelinkUrlConfigList.size()>0) {
+				logger.info("Everything is fine - there is at least one LiveLink URL Observable in the list");
+				return true;
+			}
+
+
 		} catch(ParserConfigurationException pce) {
 			pce.printStackTrace();
 		} catch(SAXException se) {
@@ -132,5 +143,6 @@ public class XMLConfigurationFileReader {
 		} catch(IOException ioe) {
 			ioe.printStackTrace();
 		}
+		return false;
 	}
 }

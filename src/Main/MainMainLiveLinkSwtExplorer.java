@@ -1,5 +1,6 @@
 package Main;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -14,11 +15,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
+import Configuration.MainTestXMLConfigurationFileReader;
+import Configuration.XMLConfigurationFileReader;
 import FileExplorerTab.FileExplorerTab;
 import HelpTab.LiveLinkHelpTab;
 import HelpTab.WindowsExplorerHelpTab;
 import LiveLinkCore.LiveLinkNode;
 import LiveLinkCore.LiveLinkObjectImageFactory;
+import LiveLinkCore.LiveLinkURLObservable;
 import MimeType.LiveLinkMimeTypeSet;
 import RecursiveLiveLinkBrowser.OleWebBrowserTab;
 
@@ -28,6 +32,37 @@ public class MainMainLiveLinkSwtExplorer {
 
 	private static LiveLinkMimeTypeSet llMimeTypeSet = null;
 	private static LiveLinkObjectImageFactory llObjectImageFactory = null;
+	
+	private static LiveLinkURLObservable getFirstLLUrlInConfigurationFile() {
+		
+		String fileName = "LiveLink-Configuration-V001.xml";
+		try {
+
+			String filePath = MainTestXMLConfigurationFileReader.class.getResource(fileName).getPath();
+			logger.info(filePath);
+			File xmlConfigurationFile = new File(filePath);
+
+			if (xmlConfigurationFile.exists() && !xmlConfigurationFile.isDirectory()) {
+
+				logger.info("configuration file is existing");
+				XMLConfigurationFileReader xmLConfigurationFileReader = new XMLConfigurationFileReader(filePath);
+				boolean b = xmLConfigurationFileReader.parseXmlFile();
+				if (b) {
+					logger.info("file has been correctly parsed");
+					logger.info("first LLobs= " + xmLConfigurationFileReader.getFirstLiveLinkURL().getLiveLinkObjectId());
+					return xmLConfigurationFileReader.getFirstLiveLinkURL();
+				}
+			}
+
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			logger.log(Level.SEVERE, "file= " + fileName + " -> error= " + ex.getLocalizedMessage());
+
+		}
+		return null;
+		
+	}
 
 	private static boolean testLivelinkConnection(Shell shell, CTabFolder tabFolder) {
 
@@ -42,7 +77,13 @@ public class MainMainLiveLinkSwtExplorer {
 			//strURL = "https://ecm.corp.thales/livelink/livelink.exe/fetch/2000/665102/Home%2520page%2520de%2520TR6?func=ll&objId=665102&objAction=browse";
 			//strURL = "https://ecm.corp.thales/livelink/livelink.exe?func=ll&objId=98408342&objAction=browse&sort=name";
 			LiveLinkNode rootNode = null;
+			// default root node
 			rootNode = new LiveLinkNode(new URL(strURL));
+			if (getFirstLLUrlInConfigurationFile() != null) {
+				// root node from configuration file
+				rootNode = new LiveLinkNode(getFirstLLUrlInConfigurationFile());
+			} 
+			// create the tabs
 			OleWebBrowserTab oleWebBrowserTab = new OleWebBrowserTab(
 					shell , 
 					tabFolder, 
@@ -57,6 +98,8 @@ public class MainMainLiveLinkSwtExplorer {
 			logger.log(Level.SEVERE , "Livelink is not connected : " + e.getLocalizedMessage());
 
 		}
+		logger.log(Level.SEVERE , "Livelink is not connected : " );
+
 		return ret;
 	}
 
