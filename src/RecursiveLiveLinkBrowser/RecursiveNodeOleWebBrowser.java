@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Shell;
 
 import Antxr.LiveLinkParser;
+import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
 import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.LiveLinkNode;
@@ -491,7 +492,7 @@ public class RecursiveNodeOleWebBrowser extends CTabItem {
 									new ShellInformationMessage(this.parent.getDisplay(),this.parent,
 											"EXCEL file generated sucessfully= " + writableExcelFile.getExcelFilePath());
 								}
-							} catch (Excel2003MaxRowException ex) {
+							} catch (Excel2003MaxRowsException ex) {
 								new ShellInformationMessage(this.parent.getDisplay(),this.parent,
 										"EXCEL 2003 - row index exceeds max row number");
 							}

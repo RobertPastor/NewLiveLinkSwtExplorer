@@ -52,6 +52,7 @@ public class GenerateIndentedIndexMenuSelectionListener implements SelectionList
 						if (llSelectedNode.isLeaf() == false) {
 							System.out.println("LiveLinkTreeComposite: Selected Node is not a leaf: "+selectedItem.getText());
 							
+							// launch and create a new tab
 							new RecursiveNodeOleWebBrowser(GenerateIndentedIndexMenuSelectionListener.this.parent.getShell(), 
 									GenerateIndentedIndexMenuSelectionListener.this.cTabFolder, llSelectedNode, true);
 

@@ -18,6 +18,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
+import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
 import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.LiveLinkNode;
@@ -517,7 +518,7 @@ public class RecursiveLiveLinkTreeCompositeObserver extends Composite implements
 						new ShellInformationMessage(this.parent.getDisplay(),this.parent.getShell(),
 								writableExcelFile.getExcelFilePath());
 					}
-				} catch (Excel2003MaxRowException ex) {
+				} catch (Excel2003MaxRowsException ex) {
 					new ShellInformationMessage(this.parent.getDisplay(),this.parent.getShell(),
 							"Error - EXCEL 2003 - row index exceeds max row number");
 				}

@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
+import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
 import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.ShellInformationMessage;
@@ -79,9 +80,11 @@ public class FileExplorerTab extends CTabItem {
 	private Menu tableMenu = null;
 
 	private CTabFolder tabFolder = null;
+	
+	private FileExplorerRecursivTab simplifiedFileExplorerTab = null;
 
 	private StatusBarObserver analysisStatus = null;
-	private ProgressBar qPcpAnalysisProgressBar = null;
+	private ProgressBar analysisProgressBar = null;
 	private String userQpcpFolder = "";
 
 	public FileExplorerTab (Composite comp, CTabFolder tabFolder) {
@@ -181,7 +184,8 @@ public class FileExplorerTab extends CTabItem {
 
 		//=======================================================================
 
-		/*		setFolderButton = new Button(this.locationComposite, SWT.PUSH);
+		/**
+		 * 		setFolderButton = new Button(this.locationComposite, SWT.PUSH);
 		setFolderButton.setText("Set as Preferred Folder");
 
 		GridData gridDataThree = new GridData();
@@ -428,6 +432,8 @@ public class FileExplorerTab extends CTabItem {
 					if (fileTree.getSelection()[0].getData() instanceof File) {
 						File selectedFile = (File) fileTree.getSelection()[0].getData();
 
+						//================================
+						// here new tab from here
 						WritableExcelFile writableExcelFile = new WritableExcelFile(FileExplorerTab.this.parent.getDisplay());
 						if (writableExcelFile.Create(selectedFile)) {
 							try {
@@ -437,7 +443,7 @@ public class FileExplorerTab extends CTabItem {
 											FileExplorerTab.this.parent.getShell(),
 											writableExcelFile.getExcelFilePath());					
 								}
-							} catch (Excel2003MaxRowException ex) {
+							} catch (Excel2003MaxRowsException ex) {
 								new ShellInformationMessage(FileExplorerTab.this.parent.getDisplay(),
 										FileExplorerTab.this.parent.getShell(),
 										"Error - EXCEL 2003 - row index exceeds max rows number");	
@@ -468,6 +474,20 @@ public class FileExplorerTab extends CTabItem {
 					if (fileTree.getSelection()[0].getData() instanceof File) {
 						File selectedFile = (File) fileTree.getSelection()[0].getData();
 
+						//===========================
+						// create a new tab from here
+						//==========================
+						FileExplorerTab.this.simplifiedFileExplorerTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
+						FileExplorerTab.this.simplifiedFileExplorerTab.activate();
+						try {
+							FileExplorerTab.this.simplifiedFileExplorerTab.start();
+						} catch (Excel2003MaxRowsException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
+						
+						/**
 						WritableExcelFile writableExcelFile = new WritableExcelFile(FileExplorerTab.this.parent.getDisplay());
 						if (writableExcelFile.Create(selectedFile)) {
 							try {
@@ -483,7 +503,8 @@ public class FileExplorerTab extends CTabItem {
 										"Error - EXCEL 2003 - row index exceeds max rows number");	
 							}
 
-						}					
+						}
+						*/					
 					}
 				}
 			}
@@ -631,12 +652,12 @@ public class FileExplorerTab extends CTabItem {
 		//this.analysisStatus.setBackground(greenColor);
 
 		// Add a progress bar to display downloading progress information
-		this.qPcpAnalysisProgressBar = new ProgressBar(lastRowComposite, SWT.BORDER);
+		this.analysisProgressBar = new ProgressBar(lastRowComposite, SWT.BORDER);
 		gridData = new GridData();
 		gridData.horizontalSpan = 1;
 		gridData.grabExcessHorizontalSpace = false;
 		gridData.grabExcessVerticalSpace = false;
-		this.qPcpAnalysisProgressBar.setLayoutData(gridData);		
+		this.analysisProgressBar.setLayoutData(gridData);		
 
 	}
 

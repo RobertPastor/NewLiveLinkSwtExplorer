@@ -44,16 +44,7 @@ import ToolVersion.ToolVersion;
 
 public class WritableExcelSheet  {
 
-	public class Excel2003MaxRowException extends Exception { 
-		/**
-		 * 
-		 */
-		private static final long serialVersionUID = -7891530634476487787L;
-
-		public Excel2003MaxRowException(String errorMessage) {
-			super(errorMessage);
-		}
-	}
+	
 
 	private static final Logger logger = Logger.getLogger(WritableExcelSheet.class.getName());
 
@@ -317,9 +308,9 @@ public class WritableExcelSheet  {
 	 * writes using JExcel API the content of the results sheet
 	 * @param liveLinkNodeTree
 	 * @return
-	 * @throws Excel2003MaxRowException 
+	 * @throws Excel2003MaxRowsException 
 	 */
-	public boolean writeLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowException {
+	public boolean writeLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowsException {
 
 		this.RowIndex = 0;
 		this.sheet.insertRow(0);
@@ -343,7 +334,7 @@ public class WritableExcelSheet  {
 							if (RowIndex < MaxNumberOfRows) {
 								this.sheet.insertRow(RowIndex);
 							} else {
-								throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+								throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 							}
 
 							// write the node data
@@ -659,7 +650,7 @@ public class WritableExcelSheet  {
 		return ret;
 	}
 
-	public void writeRecursiveLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowException {
+	public void writeRecursiveLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowsException {
 
 		this.sheet.insertRow(RowIndex);
 		TreeItem rootItem = liveLinkNodeTree.getItems()[0];
@@ -693,7 +684,7 @@ public class WritableExcelSheet  {
 	 * such as the node is a folder or
 	 * @param items
 	 */
-	private void traverseLiveLinkNodeTree(TreeItem[] items) throws Excel2003MaxRowException {
+	private void traverseLiveLinkNodeTree(TreeItem[] items) throws Excel2003MaxRowsException {
 
 		int ColumnIndex = 0;
 		for (int i = 0; i < items.length; i++) {
@@ -705,7 +696,7 @@ public class WritableExcelSheet  {
 				if (RowIndex < MaxNumberOfRows) {
 					this.sheet.insertRow(RowIndex);
 				} else {
-					throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+					throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 				}
 
 				// write the node data
@@ -756,7 +747,7 @@ public class WritableExcelSheet  {
 		});
 	}
 
-	private void recursiveFileExplorer (File initialFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowException {
+	private void recursiveFileExplorer (File initialFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 
 		// search sub folders and files
 		File[] newFiles = initialFile.listFiles();
@@ -785,7 +776,7 @@ public class WritableExcelSheet  {
 		}
 	}
 
-	public void writeFileExplorerRecursive(final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowException {
+	public void writeFileExplorerRecursive(final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 
 		// compute number of columns
 		int columnIndex = writeFileExplorerHeader();
@@ -801,11 +792,11 @@ public class WritableExcelSheet  {
 		}
 	}
 
-	public void writeFileData (File file) throws Excel2003MaxRowException {
+	public void writeFileData (File file) throws Excel2003MaxRowsException {
 
 		this.RowIndex++;
 		if (this.RowIndex > MaxNumberOfRows){
-			throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+			throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 		}
 		int columnIndex = 0;
 		this.sheet.insertRow(this.RowIndex);
@@ -825,7 +816,7 @@ public class WritableExcelSheet  {
 	}
 
 
-	public boolean writeFileExplorer(File initialFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowException {
+	public boolean writeFileExplorer(File initialFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 
 		int ColumnIndex = writeFileExplorerHeader();
 		// search sub folders and files
@@ -852,7 +843,7 @@ public class WritableExcelSheet  {
 		return true;
 	}
 
-	public void generateLiveLinkTreeIndex(Tree liveLinkNodeTree) throws Excel2003MaxRowException {
+	public void generateLiveLinkTreeIndex(Tree liveLinkNodeTree) throws Excel2003MaxRowsException {
 
 		this.RowIndex = 0;
 		this.sheet.insertRow(RowIndex);
@@ -871,7 +862,7 @@ public class WritableExcelSheet  {
 		writeGeneratedIndex();
 	}
 
-	private void writeGeneratedIndex() throws Excel2003MaxRowException {
+	private void writeGeneratedIndex() throws Excel2003MaxRowsException {
 
 		this.RowIndex = 0;
 		Iterator<LiveLinkNodeExcelRecord> iter = liveLinkNodeTreeSet.iterator();
@@ -886,7 +877,7 @@ public class WritableExcelSheet  {
 			//System.out.println("write output Excel: "+llXlsRecord.getLLNode().getName());
 			this.RowIndex++;
 			if (this.RowIndex > MaxNumberOfRows) {
-				throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+				throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 			}
 			this.sheet.insertRow(this.RowIndex);
 			// start inserting data
@@ -961,7 +952,7 @@ public class WritableExcelSheet  {
 		return treeDepth;
 	}
 
-	private void buildLiveLinkNodeTreeCollection(TreeItem[] items) throws Excel2003MaxRowException {
+	private void buildLiveLinkNodeTreeCollection(TreeItem[] items) throws Excel2003MaxRowsException {
 
 		for (int i = 0; i < items.length; i++) {
 			TreeItem item = items[i];
@@ -973,7 +964,7 @@ public class WritableExcelSheet  {
 				int treeDepth = getTreeDepth(item);
 				this.RowIndex++;
 				if (this.RowIndex > MaxNumberOfRows) {
-					throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+					throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 				}
 				LiveLinkNodeExcelRecord llXlsRecord = new LiveLinkNodeExcelRecord(this.RowIndex, treeDepth, strParentText, llNode);
 				this.liveLinkNodeTreeSet.add(llXlsRecord);
@@ -982,7 +973,7 @@ public class WritableExcelSheet  {
 		}
 	}
 
-	public void generateLiveLinkNodeRecursiveIndex(LiveLinkNode llNode, boolean writeHeader, boolean indentedEXCELresults, int maxDepth) throws Excel2003MaxRowException {
+	public void generateLiveLinkNodeRecursiveIndex(LiveLinkNode llNode, boolean writeHeader, boolean indentedEXCELresults, int maxDepth) throws Excel2003MaxRowsException {
 
 		int ColumnIndex = 0;
 		if (writeHeader) {
@@ -997,7 +988,7 @@ public class WritableExcelSheet  {
 			writeLiveLinkNodeHeader (llNode, indentedEXCELresults, maxDepth);
 			RowIndex++;
 			if (RowIndex > MaxNumberOfRows) {
-				throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+				throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 			}
 			this.sheet.insertRow(RowIndex);
 
@@ -1012,7 +1003,7 @@ public class WritableExcelSheet  {
 				LiveLinkNode llSubNode = iter.next();
 				RowIndex++;
 				if (RowIndex > MaxNumberOfRows) {
-					throw new Excel2003MaxRowException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
+					throw new Excel2003MaxRowsException("EXCEL 2003 - row index exceeds max number of row > " + (MaxNumberOfRows) );
 				}
 				this.sheet.insertRow(RowIndex);
 				// write the node data

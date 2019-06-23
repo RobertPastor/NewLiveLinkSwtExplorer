@@ -8,7 +8,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Tree;
 
 import FileExplorerTab.StatusBarObserver;
-import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.LiveLinkNode;
 
 
@@ -70,7 +69,7 @@ public class WritableExcelFile {
 		return false;
 	}
 	
-	public boolean WriteFileExplorerRecursive (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowException {
+	public boolean WriteFileExplorerRecursive (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("File Explorer");
 			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet,this.display);
@@ -80,7 +79,7 @@ public class WritableExcelFile {
 		return false;
 	}
 
-	public boolean WriteFileExplorer (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowException {
+	public boolean WriteFileExplorer (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("File Explorer");
@@ -91,7 +90,7 @@ public class WritableExcelFile {
 		return false;
 	}
 
-	public boolean writeLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowException {
+	public boolean writeLiveLinkData(Tree liveLinkNodeTree) throws Excel2003MaxRowsException {
 
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("LiveLink Explorer");
@@ -102,7 +101,7 @@ public class WritableExcelFile {
 		return false;
 	}
 
-	public boolean generateLiveLinkTreeRecursiveIndex(Tree liveLinkTree) throws Excel2003MaxRowException {
+	public boolean generateLiveLinkTreeRecursiveIndex(Tree liveLinkTree) throws Excel2003MaxRowsException {
 		
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("LiveLink Explorer");
@@ -114,7 +113,7 @@ public class WritableExcelFile {
 		return false;
 	}
 	
-	public boolean generateLiveLinkTreeIndentedIndex(Tree liveLinkTree) throws Excel2003MaxRowException {
+	public boolean generateLiveLinkTreeIndentedIndex(Tree liveLinkTree) throws Excel2003MaxRowsException {
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("LiveLink Explorer");
 			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet, this.display);
@@ -133,7 +132,7 @@ public class WritableExcelFile {
 		return this.workbook.getExcelFilePath();
 	}
 
-	public boolean generateLiveLinkNodeRecursiveIndex(LiveLinkNode rootNode, Boolean indentedEXCELresults) throws Excel2003MaxRowException {
+	public boolean generateLiveLinkNodeRecursiveIndex(LiveLinkNode rootNode, Boolean indentedEXCELresults) throws Excel2003MaxRowsException {
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("LiveLink Explorer");
 			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet, this.display);
