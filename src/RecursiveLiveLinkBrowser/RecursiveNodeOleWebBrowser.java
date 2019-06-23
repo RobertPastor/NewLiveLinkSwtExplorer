@@ -28,7 +28,6 @@ import org.eclipse.swt.widgets.Shell;
 import Antxr.LiveLinkParser;
 import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
-import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.LiveLinkNode;
 import LiveLinkCore.LiveLinkVolume;
 import LiveLinkCore.ShellErrorMessage;

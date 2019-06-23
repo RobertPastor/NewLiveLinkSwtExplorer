@@ -20,7 +20,6 @@ import org.eclipse.swt.widgets.TreeItem;
 
 import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
-import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.LiveLinkNode;
 import LiveLinkCore.LiveLinkObjectImageFactory;
 import LiveLinkCore.LiveLinkURLObservable;

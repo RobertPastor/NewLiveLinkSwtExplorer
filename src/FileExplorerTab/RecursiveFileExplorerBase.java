@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.eclipse.swt.widgets.Display;
 
 import JExcelApi.Excel2003MaxRowsException;
-import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 
 
 public class RecursiveFileExplorerBase {

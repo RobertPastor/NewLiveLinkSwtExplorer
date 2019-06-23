@@ -9,7 +9,6 @@ import java.util.logging.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -71,11 +70,16 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.setControl(contentPanel);
 		
 		// init status Bar and progress composite
-		initStatusBarAndProgressComposite();
+		try {
+			initStatusBarAndProgressComposite();
+		} catch (Excel2003MaxRowsException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
-	private void initStatusBarAndProgressComposite() {
+	private void initStatusBarAndProgressComposite() throws Excel2003MaxRowsException {
 
 		Composite lastRowComposite = new Composite(this.contentPanel,SWT.FILL | SWT.BORDER);
 
@@ -111,16 +115,20 @@ public class FileExplorerRecursivTab extends CTabItem {
 		gridData.horizontalSpan = 1;
 		gridData.grabExcessHorizontalSpace = false;
 		gridData.grabExcessVerticalSpace = false;
-		this.analysisProgressBar.setLayoutData(gridData);		
-
+		this.analysisProgressBar.setLayoutData(gridData);	
+		
+		// activate
+		this.activate();
+		// start
+		this.start();
 	}
 
-	public void activate() {
+	private void activate() {
 		// activate this tab
 		this.cTabFolder.setSelection(this);
 	}
 
-	public void start() throws Excel2003MaxRowsException {
+	private void start() throws Excel2003MaxRowsException {
 		RecursiveFileExplorerBase recursiveFileExplorerBase = new RecursiveFileExplorerBase(this.initialFile, this.getDisplay());
 		recursiveFileExplorerBase.start();
 	}

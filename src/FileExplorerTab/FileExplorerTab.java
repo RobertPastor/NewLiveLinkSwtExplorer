@@ -42,7 +42,6 @@ import org.eclipse.swt.widgets.TreeItem;
 
 import JExcelApi.Excel2003MaxRowsException;
 import JExcelApi.WritableExcelFile;
-import JExcelApi.WritableExcelSheet.Excel2003MaxRowException;
 import LiveLinkCore.ShellInformationMessage;
 import de.kupzog.ktable.KTable;
 import de.kupzog.ktable.KTableCellResizeListener;
@@ -472,21 +471,29 @@ public class FileExplorerTab extends CTabItem {
 					logger.log(Level.INFO,"Recursive Export from Selected node: "+selectedItem.getText());
 
 					if (fileTree.getSelection()[0].getData() instanceof File) {
-						File selectedFile = (File) fileTree.getSelection()[0].getData();
+						final File selectedFile = (File) fileTree.getSelection()[0].getData();
 
 						//===========================
 						// create a new tab from here
 						//==========================
-						FileExplorerTab.this.simplifiedFileExplorerTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
-						FileExplorerTab.this.simplifiedFileExplorerTab.activate();
-						try {
-							FileExplorerTab.this.simplifiedFileExplorerTab.start();
-						} catch (Excel2003MaxRowsException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
+						
+						FileExplorerTab.this.parent.getDisplay().syncExec(new Runnable() {
+							// navigate again to the home location - in browse mode
+							public void run() {
+								
+								FileExplorerTab.this.simplifiedFileExplorerTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
+								FileExplorerTab.this.simplifiedFileExplorerTab.activate();
+								try {
+									FileExplorerTab.this.simplifiedFileExplorerTab.start();
+								} catch (Excel2003MaxRowsException e1) {
+									e1.printStackTrace();
+								}
+								
+							}
+						});
 						
 						
+		
 						/**
 						WritableExcelFile writableExcelFile = new WritableExcelFile(FileExplorerTab.this.parent.getDisplay());
 						if (writableExcelFile.Create(selectedFile)) {
@@ -635,7 +642,6 @@ public class FileExplorerTab extends CTabItem {
 		lastRowComposite.setLayoutData(gridData);
 
 		// Add a label for displaying status messages as they are received from the control
-		//this.analysisStatus = new Label(lastRowComposite, SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
 		this.analysisStatus = new StatusBarObserver(lastRowComposite, SWT.SINGLE | SWT.READ_ONLY | SWT.BORDER);
 
 		gridData = new GridData(GridData.FILL_HORIZONTAL | GridData.VERTICAL_ALIGN_FILL);
@@ -646,10 +652,7 @@ public class FileExplorerTab extends CTabItem {
 
 		this.analysisStatus.setToolTipText("status message");
 		this.analysisStatus.setText("... In the Tree view, click on on Folder to open it ...");
-		//this.analysisStatus.setLayoutData(gridData);
 
-		Color greenColor = parent.getDisplay().getSystemColor(SWT.COLOR_GREEN);
-		//this.analysisStatus.setBackground(greenColor);
 
 		// Add a progress bar to display downloading progress information
 		this.analysisProgressBar = new ProgressBar(lastRowComposite, SWT.BORDER);
