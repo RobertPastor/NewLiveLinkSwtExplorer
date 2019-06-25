@@ -3,6 +3,7 @@ package FileExplorerTab;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,6 +17,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.ProgressBar;
 
 import JExcelApi.Excel2003MaxRowsException;
+import LiveLinkCore.ShellInformationMessage;
 
 public class FileExplorerRecursivTab extends CTabItem {
 
@@ -25,18 +27,23 @@ public class FileExplorerRecursivTab extends CTabItem {
 	private CTabFolder cTabFolder = null;
 	private Composite contentPanel = null;
 	private File initialFile = null;
-	
+
 	private StatusBarObserver analysisStatus = null;
 	private ProgressBar analysisProgressBar = null;
+	
+	private ArrayList<File> browsedFiles = null;
 
 
-	public FileExplorerRecursivTab(final Composite comp, final CTabFolder cTabFolder,  final File initialFile) {
+
+	public FileExplorerRecursivTab(final Composite parentComposite, final CTabFolder cTabFolder,  final File initialFile) {
 		super(cTabFolder, SWT.NULL);
 
-		this.parentComposite = comp;
+		this.parentComposite = parentComposite;
 		this.cTabFolder = cTabFolder;
 		this.initialFile = initialFile;
 		this.setText ("Recursiv File Explorer");
+		
+		this.browsedFiles = new ArrayList<>();
 
 		InputStream in = FileExplorerTab.class.getResourceAsStream("folder.gif");
 		if (in != null) {
@@ -48,7 +55,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 		} catch (IOException e) {
 			logger.log(Level.SEVERE , e.getLocalizedMessage() );
 		}
-		
+
 		this.contentPanel = new Composite (cTabFolder, SWT.FILL|SWT.BORDER);
 
 		GridLayout layout = new GridLayout();
@@ -68,17 +75,16 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.contentPanel.setLayoutData(gridData);
 		//=========================
 		this.setControl(contentPanel);
-		
+
 		// init status Bar and progress composite
 		try {
 			initStatusBarAndProgressComposite();
 		} catch (Excel2003MaxRowsException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
 	private void initStatusBarAndProgressComposite() throws Excel2003MaxRowsException {
 
 		Composite lastRowComposite = new Composite(this.contentPanel,SWT.FILL | SWT.BORDER);
@@ -116,11 +122,71 @@ public class FileExplorerRecursivTab extends CTabItem {
 		gridData.grabExcessHorizontalSpace = false;
 		gridData.grabExcessVerticalSpace = false;
 		this.analysisProgressBar.setLayoutData(gridData);	
-		
-		// activate
-		this.activate();
+
+
 		// start
-		this.start();
+		this.parentComposite.getDisplay().asyncExec(new Runnable() {
+			public void run() {			
+
+				// activate
+				FileExplorerRecursivTab.this.activate();
+				
+				try {
+					FileExplorerRecursivTab.this.recursiveFileExplorerWrapper(FileExplorerRecursivTab.this.initialFile);
+					
+				} catch (Excel2003MaxRowsException e) {
+					logger.severe("EXCEL 2003 Max Rows Exceeded");
+					new ShellInformationMessage(FileExplorerRecursivTab.this.parentComposite.getDisplay(),
+							FileExplorerRecursivTab.this.parentComposite.getShell(),
+							"EXCEL 2003 Max Rows Exceeded");				}
+			}
+		});
+
+	}
+
+	/**
+	 * This method allows to sleep during a number of milliseconds
+	 * @param milliseconds
+	 */
+	private void sleepMilliseconds(final int milliseconds, final File file) {
+		this.parentComposite.getDisplay().timerExec (milliseconds, new Runnable () {
+			public void run () {
+				
+				FileObservable fileObservable = new FileObservable(file);
+				fileObservable.addObserver(FileExplorerRecursivTab.this.analysisStatus);
+				fileObservable.notifyObservers();
+			}
+		});
+	}
+	
+	private void recursiveFileExplorerWrapper (final File file) throws Excel2003MaxRowsException{
+
+		// search sub folders and files
+		File[] newFiles = file.listFiles();
+		if (this.browsedFiles.size() > 65550) {
+			throw new Excel2003MaxRowsException("Number of browsed files exceeding EXCEL 2003 limit of 65550 rows");
+		}
+		if (newFiles != null) {
+
+		
+			for (int i = 0; i < newFiles.length; i++) {
+				// write the data for the current file
+				logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
+				File nextFile = newFiles[i];
+				
+				// let the other Thread run...
+				sleepMilliseconds(300, nextFile);
+
+				if (nextFile.isDirectory()) {
+					// write folder name in Status Bar
+
+					// Recursive search of files from this folder
+					recursiveFileExplorerWrapper (newFiles[i]);				
+				}
+			}
+		} else {
+			System.out.println("it is finished");
+		}
 	}
 
 	private void activate() {

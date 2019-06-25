@@ -80,7 +80,7 @@ public class FileExplorerTab extends CTabItem {
 
 	private CTabFolder tabFolder = null;
 	
-	private FileExplorerRecursivTab simplifiedFileExplorerTab = null;
+	private FileExplorerRecursivTab fileExplorerRecursivTab = null;
 
 	private StatusBarObserver analysisStatus = null;
 	private ProgressBar analysisProgressBar = null;
@@ -481,13 +481,9 @@ public class FileExplorerTab extends CTabItem {
 							// navigate again to the home location - in browse mode
 							public void run() {
 								
-								FileExplorerTab.this.simplifiedFileExplorerTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
-								FileExplorerTab.this.simplifiedFileExplorerTab.activate();
-								try {
-									FileExplorerTab.this.simplifiedFileExplorerTab.start();
-								} catch (Excel2003MaxRowsException e1) {
-									e1.printStackTrace();
-								}
+								FileExplorerTab.this.fileExplorerRecursivTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
+								//FileExplorerTab.this.simplifiedFileExplorerTab.activate();
+								
 								
 							}
 						});
