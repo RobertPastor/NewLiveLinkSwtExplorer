@@ -37,7 +37,6 @@ public class FileExplorerRecursivTab extends CTabItem {
 	private StatusBarObserver analysisStatus = null;
 	private ProgressBar analysisProgressBar = null;
 
-	private ArrayList<File> browsedFiles = null;
 	private Composite locationComposite = null;
 
 	private Text locationText = null;
@@ -52,8 +51,6 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.cTabFolder = cTabFolder;
 		this.initialFile = initialFile;
 		this.setText ("Recursiv File Explorer");
-
-		this.browsedFiles = new ArrayList<>();
 
 		InputStream in = FileExplorerTab.class.getResourceAsStream("folder.gif");
 		if (in != null) {
@@ -92,11 +89,12 @@ public class FileExplorerRecursivTab extends CTabItem {
 			initStatusBarAndProgressComposite();
 			addLaunchButton();
 			// activate this tab folder tab
-			this.activate();
+			this.cTabFolder.setSelection(this);
 			
 		} catch (Excel2003MaxRowsException e) {
-			e.printStackTrace();
-		}
+			new ShellInformationMessage(this.getDisplay(),
+					this.parentComposite.getShell(),
+					e.getLocalizedMessage());			}
 
 	}
 	
@@ -134,7 +132,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 
 		gridDataTwo.grabExcessHorizontalSpace = true;
 		gridDataTwo.grabExcessVerticalSpace = false;
-		locationText.setLayoutData(gridDataTwo);
+		this.locationText.setLayoutData(gridDataTwo);
 
 		Color yellow = this.getDisplay().getSystemColor(SWT.COLOR_YELLOW);
 		this.locationText.setBackground(yellow);
@@ -142,11 +140,12 @@ public class FileExplorerRecursivTab extends CTabItem {
 		try {
 			this.locationText.setText(this.initialFile.getCanonicalPath());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			
+			new ShellInformationMessage(this.getDisplay(),
+					this.parentComposite.getShell(),
+					e.getLocalizedMessage());	
 
-		//=======================================================================
+		}
 
 	}
 
@@ -173,13 +172,20 @@ public class FileExplorerRecursivTab extends CTabItem {
 		gridData.verticalAlignment = SWT.BEGINNING;
 		gridData.grabExcessHorizontalSpace = false;
 		gridData.grabExcessVerticalSpace = false;
-		launchButton.setLayoutData(gridData);
+		this.launchButton.setLayoutData(gridData);
 
-		launchButton.addSelectionListener(new SelectionAdapter() {
+		this.launchButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				logger.log(Level.INFO,"===========Launch Button pressed==========");
 
 				disableButtons();
+				
+				FileExplorerRecursivThread fileExplorerRecursivThread = new FileExplorerRecursivThread(contentPanel, 
+						FileExplorerRecursivTab.this.getDisplay(), 
+						FileExplorerRecursivTab.this.initialFile, 
+						FileExplorerRecursivTab.this.locationText, 
+						FileExplorerRecursivTab.this.analysisStatus);
+				fileExplorerRecursivThread.start();
 
 				logger.log(Level.INFO,"===========Launch Button pressed==========");
 
@@ -226,82 +232,6 @@ public class FileExplorerRecursivTab extends CTabItem {
 		gridData.grabExcessVerticalSpace = false;
 		this.analysisProgressBar.setLayoutData(gridData);	
 
-
-	}
-
-
-	private void startExploring() {
-
-		// start
-		this.parentComposite.getDisplay().asyncExec(new Runnable() {
-			public void run() {			
-
-				try {
-					FileExplorerRecursivTab.this.recursiveFileExplorerWrapper(FileExplorerRecursivTab.this.initialFile);
-
-				} catch (Excel2003MaxRowsException e) {
-					logger.severe("EXCEL 2003 Max Rows Exceeded");
-					new ShellInformationMessage(FileExplorerRecursivTab.this.parentComposite.getDisplay(),
-							FileExplorerRecursivTab.this.parentComposite.getShell(),
-							"EXCEL 2003 Max Rows Exceeded");				}
-			}
-		});
-
-	}
-
-	/**
-	 * This method allows to sleep during a number of milliseconds
-	 * @param milliseconds
-	 */
-	private void sleepMilliseconds(final int milliseconds, final File file) {
-		this.parentComposite.getDisplay().timerExec (milliseconds, new Runnable () {
-			public void run () {
-
-				FileObservable fileObservable = new FileObservable(file);
-				fileObservable.addObserver(FileExplorerRecursivTab.this.analysisStatus);
-				fileObservable.notifyObservers();
-			}
-		});
-	}
-
-	private void recursiveFileExplorerWrapper (final File file) throws Excel2003MaxRowsException{
-
-		// search sub folders and files
-		File[] newFiles = file.listFiles();
-		if (this.browsedFiles.size() > 65550) {
-			throw new Excel2003MaxRowsException("Number of browsed files exceeding EXCEL 2003 limit of 65550 rows");
-		}
-		if (newFiles != null) {
-
-
-			for (int i = 0; i < newFiles.length; i++) {
-				// write the data for the current file
-				logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
-				File nextFile = newFiles[i];
-
-				// let the other Thread run...
-				sleepMilliseconds(300, nextFile);
-
-				if (nextFile.isDirectory()) {
-					// write folder name in Status Bar
-
-					// Recursive search of files from this folder
-					recursiveFileExplorerWrapper (newFiles[i]);				
-				}
-			}
-		} else {
-			System.out.println("it is finished");
-		}
-	}
-
-	private void activate() {
-		// activate this tab
-		this.cTabFolder.setSelection(this);
-	}
-
-	private void start() throws Excel2003MaxRowsException {
-		RecursiveFileExplorerBase recursiveFileExplorerBase = new RecursiveFileExplorerBase(this.initialFile, this.getDisplay());
-		recursiveFileExplorerBase.start();
 	}
 
 }
