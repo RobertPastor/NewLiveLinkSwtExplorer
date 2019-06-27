@@ -183,32 +183,6 @@ public class FileExplorerTab extends CTabItem {
 
 		//=======================================================================
 
-		/**
-		 * 		setFolderButton = new Button(this.locationComposite, SWT.PUSH);
-		setFolderButton.setText("Set as Preferred Folder");
-
-		GridData gridDataThree = new GridData();
-		gridDataThree.horizontalAlignment = SWT.RIGHT;
-		gridDataThree.verticalAlignment = SWT.BEGINNING;
-		gridDataThree.grabExcessHorizontalSpace = false;
-		gridDataThree.grabExcessVerticalSpace = false;
-		setFolderButton.setLayoutData(gridDataThree);
-
-		setFolderButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				logger.log(Level.INFO,"===========setFolderButton ==========");
-
-				File file = new File(locationText.getText());
-				if (file.exists() && file.isDirectory()) {
-					logger.log(Level.INFO,"===========setFolderButton Button==========" + file.getAbsolutePath() );
-				} else {
-					logger.log(Level.SEVERE, "location: " + locationText.getText() + " is not a valid directory !!!");
-				}
-
-				logger.log(Level.INFO,"===========setFolderButton Button==========");
-			}
-		});*/
-
 		//========================================================================
 	}
 
@@ -482,14 +456,11 @@ public class FileExplorerTab extends CTabItem {
 							public void run() {
 								
 								FileExplorerTab.this.fileExplorerRecursivTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
-								//FileExplorerTab.this.simplifiedFileExplorerTab.activate();
-								
 								
 							}
 						});
 						
 						
-		
 						/**
 						WritableExcelFile writableExcelFile = new WritableExcelFile(FileExplorerTab.this.parent.getDisplay());
 						if (writableExcelFile.Create(selectedFile)) {

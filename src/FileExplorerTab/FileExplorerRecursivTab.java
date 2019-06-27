@@ -10,14 +10,20 @@ import java.util.logging.Logger;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CTabFolder;
 import org.eclipse.swt.custom.CTabItem;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.ProgressBar;
+import org.eclipse.swt.widgets.Text;
 
 import JExcelApi.Excel2003MaxRowsException;
 import LiveLinkCore.ShellInformationMessage;
+import RecursiveLiveLinkBrowser.NavigationAreaCompositeObserver;
 
 public class FileExplorerRecursivTab extends CTabItem {
 
@@ -30,9 +36,13 @@ public class FileExplorerRecursivTab extends CTabItem {
 
 	private StatusBarObserver analysisStatus = null;
 	private ProgressBar analysisProgressBar = null;
-	
-	private ArrayList<File> browsedFiles = null;
 
+	private ArrayList<File> browsedFiles = null;
+	private Composite locationComposite = null;
+
+	private Text locationText = null;
+
+	private Button launchButton = null;
 
 
 	public FileExplorerRecursivTab(final Composite parentComposite, final CTabFolder cTabFolder,  final File initialFile) {
@@ -42,7 +52,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.cTabFolder = cTabFolder;
 		this.initialFile = initialFile;
 		this.setText ("Recursiv File Explorer");
-		
+
 		this.browsedFiles = new ArrayList<>();
 
 		InputStream in = FileExplorerTab.class.getResourceAsStream("folder.gif");
@@ -78,11 +88,104 @@ public class FileExplorerRecursivTab extends CTabItem {
 
 		// init status Bar and progress composite
 		try {
+			initLocationZoneComposite();
 			initStatusBarAndProgressComposite();
+			addLaunchButton();
+			// activate this tab folder tab
+			this.activate();
+			
 		} catch (Excel2003MaxRowsException e) {
 			e.printStackTrace();
 		}
 
+	}
+	
+	public void initLocationZoneComposite() {
+
+		this.locationComposite = new Composite(this.contentPanel, SWT.FILL|SWT.BORDER);
+
+		GridLayout layout = new GridLayout();
+		layout.numColumns = 2;
+		layout.marginWidth = layout.marginHeight = 0;
+		layout.horizontalSpacing = layout.verticalSpacing = 1;
+		layout.makeColumnsEqualWidth = false;
+		this.locationComposite.setLayout(layout);
+
+		//========================================================================
+
+		GridData gridDataOne = new GridData();
+		gridDataOne.horizontalAlignment = SWT.FILL;
+		gridDataOne.verticalAlignment = SWT.BEGINNING;
+		gridDataOne.grabExcessHorizontalSpace = true;
+		gridDataOne.grabExcessVerticalSpace = false;
+		this.locationComposite.setLayoutData(gridDataOne);
+
+		//=======================================================================
+
+		this.locationText = new Text(this.locationComposite, SWT.FILL | SWT.BORDER);
+		this.locationText.setToolTipText("Please select a drive in the Tree..."); 
+		this.locationText.pack(true);
+		this.locationText.setEditable(false);
+		this.locationText.setEnabled(true);
+
+		GridData gridDataTwo = new GridData();
+		gridDataTwo.horizontalAlignment = SWT.FILL;
+		gridDataTwo.verticalAlignment = SWT.BEGINNING;
+
+		gridDataTwo.grabExcessHorizontalSpace = true;
+		gridDataTwo.grabExcessVerticalSpace = false;
+		locationText.setLayoutData(gridDataTwo);
+
+		Color yellow = this.getDisplay().getSystemColor(SWT.COLOR_YELLOW);
+		this.locationText.setBackground(yellow);
+
+		try {
+			this.locationText.setText(this.initialFile.getCanonicalPath());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		//=======================================================================
+
+	}
+
+	private void disableButtons() {
+		this.launchButton.setEnabled(false);
+	}
+
+	private void enableButtons() {
+		this.launchButton.setEnabled(true);
+	}
+
+	private void addLaunchButton() {
+
+		//==============================================================
+		this.launchButton = new Button(this.contentPanel, SWT.PUSH);
+		this.launchButton.setText("Launch File Exploration");
+		this.launchButton.setToolTipText("launch the file exploration");
+
+		Color color = this.getDisplay().getSystemColor(SWT.COLOR_CYAN);
+		this.launchButton.setBackground(color);
+
+		GridData gridData = new GridData();
+		gridData.horizontalAlignment = SWT.FILL;
+		gridData.verticalAlignment = SWT.BEGINNING;
+		gridData.grabExcessHorizontalSpace = false;
+		gridData.grabExcessVerticalSpace = false;
+		launchButton.setLayoutData(gridData);
+
+		launchButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				logger.log(Level.INFO,"===========Launch Button pressed==========");
+
+				disableButtons();
+
+				logger.log(Level.INFO,"===========Launch Button pressed==========");
+
+				enableButtons();
+			}
+		});
 	}
 
 	private void initStatusBarAndProgressComposite() throws Excel2003MaxRowsException {
@@ -124,16 +227,18 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.analysisProgressBar.setLayoutData(gridData);	
 
 
+	}
+
+
+	private void startExploring() {
+
 		// start
 		this.parentComposite.getDisplay().asyncExec(new Runnable() {
 			public void run() {			
 
-				// activate
-				FileExplorerRecursivTab.this.activate();
-				
 				try {
 					FileExplorerRecursivTab.this.recursiveFileExplorerWrapper(FileExplorerRecursivTab.this.initialFile);
-					
+
 				} catch (Excel2003MaxRowsException e) {
 					logger.severe("EXCEL 2003 Max Rows Exceeded");
 					new ShellInformationMessage(FileExplorerRecursivTab.this.parentComposite.getDisplay(),
@@ -151,14 +256,14 @@ public class FileExplorerRecursivTab extends CTabItem {
 	private void sleepMilliseconds(final int milliseconds, final File file) {
 		this.parentComposite.getDisplay().timerExec (milliseconds, new Runnable () {
 			public void run () {
-				
+
 				FileObservable fileObservable = new FileObservable(file);
 				fileObservable.addObserver(FileExplorerRecursivTab.this.analysisStatus);
 				fileObservable.notifyObservers();
 			}
 		});
 	}
-	
+
 	private void recursiveFileExplorerWrapper (final File file) throws Excel2003MaxRowsException{
 
 		// search sub folders and files
@@ -168,12 +273,12 @@ public class FileExplorerRecursivTab extends CTabItem {
 		}
 		if (newFiles != null) {
 
-		
+
 			for (int i = 0; i < newFiles.length; i++) {
 				// write the data for the current file
 				logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
 				File nextFile = newFiles[i];
-				
+
 				// let the other Thread run...
 				sleepMilliseconds(300, nextFile);
 
