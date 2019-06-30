@@ -80,7 +80,7 @@ public class FileExplorerTab extends CTabItem {
 
 	private CTabFolder tabFolder = null;
 	
-	private FileExplorerRecursivTab fileExplorerRecursivTab = null;
+	private FileExplorerRecursiveTab fileExplorerRecursivTab = null;
 
 	private StatusBarObserver analysisStatus = null;
 	private ProgressBar analysisProgressBar = null;
@@ -455,7 +455,7 @@ public class FileExplorerTab extends CTabItem {
 							// navigate again to the home location - in browse mode
 							public void run() {
 								
-								FileExplorerTab.this.fileExplorerRecursivTab = new FileExplorerRecursivTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
+								FileExplorerTab.this.fileExplorerRecursivTab = new FileExplorerRecursiveTab(FileExplorerTab.this.parent, FileExplorerTab.this.tabFolder, selectedFile );
 								
 							}
 						});

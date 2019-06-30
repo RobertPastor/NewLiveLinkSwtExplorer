@@ -25,9 +25,9 @@ import JExcelApi.Excel2003MaxRowsException;
 import LiveLinkCore.ShellInformationMessage;
 import RecursiveLiveLinkBrowser.NavigationAreaCompositeObserver;
 
-public class FileExplorerRecursivTab extends CTabItem {
+public class FileExplorerRecursiveTab extends CTabItem {
 
-	private static final Logger logger = Logger.getLogger(FileExplorerRecursivTab.class.getName()); 
+	private static final Logger logger = Logger.getLogger(FileExplorerRecursiveTab.class.getName()); 
 
 	private Composite parentComposite = null;
 	private CTabFolder cTabFolder = null;
@@ -40,11 +40,12 @@ public class FileExplorerRecursivTab extends CTabItem {
 	private Composite locationComposite = null;
 
 	private Text locationText = null;
+	private Text filesCountText = null;
 
 	private Button launchButton = null;
 
 
-	public FileExplorerRecursivTab(final Composite parentComposite, final CTabFolder cTabFolder,  final File initialFile) {
+	public FileExplorerRecursiveTab(final Composite parentComposite, final CTabFolder cTabFolder,  final File initialFile) {
 		super(cTabFolder, SWT.NULL);
 
 		this.parentComposite = parentComposite;
@@ -83,21 +84,21 @@ public class FileExplorerRecursivTab extends CTabItem {
 		//=========================
 		this.setControl(contentPanel);
 
-		// init status Bar and progress composite
+		// initialize status Bar and progress composite
 		try {
 			initLocationZoneComposite();
 			initStatusBarAndProgressComposite();
 			addLaunchButton();
 			// activate this tab folder tab
 			this.cTabFolder.setSelection(this);
-			
+
 		} catch (Excel2003MaxRowsException e) {
 			new ShellInformationMessage(this.getDisplay(),
 					this.parentComposite.getShell(),
 					e.getLocalizedMessage());			}
 
 	}
-	
+
 	public void initLocationZoneComposite() {
 
 		this.locationComposite = new Composite(this.contentPanel, SWT.FILL|SWT.BORDER);
@@ -121,7 +122,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 		//=======================================================================
 
 		this.locationText = new Text(this.locationComposite, SWT.FILL | SWT.BORDER);
-		this.locationText.setToolTipText("Please select a drive in the Tree..."); 
+		this.locationText.setToolTipText("... browsing starts here ..."); 
 		this.locationText.pack(true);
 		this.locationText.setEditable(false);
 		this.locationText.setEnabled(true);
@@ -138,14 +139,34 @@ public class FileExplorerRecursivTab extends CTabItem {
 		this.locationText.setBackground(yellow);
 
 		try {
+			// put initial file path in the location text
 			this.locationText.setText(this.initialFile.getCanonicalPath());
 		} catch (IOException e) {
-			
+
 			new ShellInformationMessage(this.getDisplay(),
 					this.parentComposite.getShell(),
 					e.getLocalizedMessage());	
 
 		}
+
+		//=======================================================================
+		this.filesCountText = new Text(this.locationComposite, SWT.FILL | SWT.BORDER);
+
+		this.filesCountText.setToolTipText("... files counter here ..."); 
+		this.filesCountText.pack(true);
+		this.filesCountText.setEditable(false);
+		this.filesCountText.setEnabled(true);
+
+		GridData gridDataThree = new GridData();
+		gridDataThree.horizontalAlignment = SWT.FILL;
+		gridDataThree.verticalAlignment = SWT.BEGINNING;
+
+		gridDataThree.grabExcessHorizontalSpace = true;
+		gridDataThree.grabExcessVerticalSpace = false;
+		this.filesCountText.setLayoutData(gridDataThree);
+
+		Color cyan = this.getDisplay().getSystemColor(SWT.COLOR_CYAN);
+		this.filesCountText.setBackground(cyan);
 
 	}
 
@@ -179,12 +200,15 @@ public class FileExplorerRecursivTab extends CTabItem {
 				logger.log(Level.INFO,"===========Launch Button pressed==========");
 
 				disableButtons();
-				
-				FileExplorerRecursivThread fileExplorerRecursivThread = new FileExplorerRecursivThread(contentPanel, 
-						FileExplorerRecursivTab.this.getDisplay(), 
-						FileExplorerRecursivTab.this.initialFile, 
-						FileExplorerRecursivTab.this.locationText, 
-						FileExplorerRecursivTab.this.analysisStatus);
+
+				FileExplorerRecursiveThread fileExplorerRecursivThread = new FileExplorerRecursiveThread(contentPanel, 
+						FileExplorerRecursiveTab.this.getDisplay(), 
+						FileExplorerRecursiveTab.this.initialFile, 
+						FileExplorerRecursiveTab.this.locationText, 
+						FileExplorerRecursiveTab.this.analysisStatus,
+						FileExplorerRecursiveTab.this.analysisProgressBar,
+						FileExplorerRecursiveTab.this.filesCountText);
+
 				// call the start method of the underlying Thread class 
 				fileExplorerRecursivThread.start();
 
@@ -223,10 +247,10 @@ public class FileExplorerRecursivTab extends CTabItem {
 		gridData.grabExcessVerticalSpace = false;
 
 		this.analysisStatus.setToolTipText("status message");
-		this.analysisStatus.setText("... recursiv file explorer tracing area  ...");
+		this.analysisStatus.setText("... recursive file explorer tracing area  ...");
 
 		// Add a progress bar to display downloading progress information
-		this.analysisProgressBar = new ProgressBar(lastRowComposite, SWT.BORDER);
+		this.analysisProgressBar = new ProgressBar(lastRowComposite, SWT.INDETERMINATE);
 		gridData = new GridData();
 		gridData.horizontalSpan = 1;
 		gridData.grabExcessHorizontalSpace = false;
