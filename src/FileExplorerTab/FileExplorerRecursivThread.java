@@ -29,6 +29,8 @@ public class FileExplorerRecursivThread extends Thread {
 
 	public FileExplorerRecursivThread( final Composite _parentComposite, 
 			final Display _display, final File _initialFile, final Text _locationText, final StatusBarObserver _analysisStatus) {
+		
+		super();
 
 		display= _display;
 		this.parentComposite = _parentComposite;
@@ -38,6 +40,19 @@ public class FileExplorerRecursivThread extends Thread {
 		this.browsedFiles = new ArrayList<>();
 	}
 
+	@Override
+	public void run() {
+		// run is called by thread start
+		try {
+			recursiveFileExplorerWrapper (this.initialFile);
+		} catch (Excel2003MaxRowsException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
 	/**
 	 * This method allows to sleep during a number of milliseconds
 	 * @param milliseconds
@@ -68,7 +83,7 @@ public class FileExplorerRecursivThread extends Thread {
 				File nextFile = newFiles[i];
 
 				// let the other Thread run...
-				//sleepMilliseconds(300, nextFile);
+
 				doUpdate(nextFile.getCanonicalPath());
 
 				if (nextFile.isDirectory()) {
@@ -83,39 +98,10 @@ public class FileExplorerRecursivThread extends Thread {
 		}
 	}
 
-	private void startExploring(final File _initialFile) {
-
-		// start
-		this.parentComposite.getDisplay().asyncExec(new Runnable() {
-			public void run() {			
-
-				try {
-					FileExplorerRecursivThread.this.recursiveFileExplorerWrapper(_initialFile);
-
-				} catch (Excel2003MaxRowsException e) {
-					logger.severe("EXCEL 2003 Max Rows Exceeded");
-					new ShellInformationMessage(FileExplorerRecursivThread.this.parentComposite.getDisplay(),
-							FileExplorerRecursivThread.this.parentComposite.getShell(),
-							"EXCEL 2003 Max Rows Exceeded");				
-				} catch (IOException e2) {
-					new ShellInformationMessage(FileExplorerRecursivThread.this.parentComposite.getDisplay(),
-							FileExplorerRecursivThread.this.parentComposite.getShell(),
-							e2.getLocalizedMessage());	
-				}
-			}
-		});
-
-	}
-
-	@Override
-	public void start() {
-		startExploring(this.initialFile);
-	}
-
 
 	public void doUpdate( final String value) {
 
-		this.display.syncExec( new Runnable() {
+		this.display.asyncExec( new Runnable() {
 			@Override
 			public void run() {
 				logger.info("--------"+ value + "----------");

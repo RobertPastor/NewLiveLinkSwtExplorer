@@ -162,7 +162,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 		//==============================================================
 		this.launchButton = new Button(this.contentPanel, SWT.PUSH);
 		this.launchButton.setText("Launch File Exploration");
-		this.launchButton.setToolTipText("launch the file exploration");
+		this.launchButton.setToolTipText("click me to launch the file exploration");
 
 		Color color = this.getDisplay().getSystemColor(SWT.COLOR_CYAN);
 		this.launchButton.setBackground(color);
@@ -185,6 +185,7 @@ public class FileExplorerRecursivTab extends CTabItem {
 						FileExplorerRecursivTab.this.initialFile, 
 						FileExplorerRecursivTab.this.locationText, 
 						FileExplorerRecursivTab.this.analysisStatus);
+				// call the start method of the underlying Thread class 
 				fileExplorerRecursivThread.start();
 
 				logger.log(Level.INFO,"===========Launch Button pressed==========");

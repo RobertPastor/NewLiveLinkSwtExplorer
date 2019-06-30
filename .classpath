@@ -11,7 +11,7 @@
 	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.core.runtime_3.14.0.v20180417-0825.jar"/>
 	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.equinox.common_3.10.0.v20180412-1130.jar"/>
 	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.jface_3.14.0.v20180423-0714.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/JExcelApi"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/JExcelApi"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
