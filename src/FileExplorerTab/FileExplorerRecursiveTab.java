@@ -181,15 +181,15 @@ public class FileExplorerRecursiveTab extends CTabItem {
 	private void addLaunchButton() {
 
 		//==============================================================
-		this.launchButton = new Button(this.contentPanel, SWT.PUSH);
-		this.launchButton.setText("Launch File Exploration");
+		this.launchButton = new Button(this.contentPanel, SWT.PUSH | SWT.TOGGLE | SWT.CENTER);
+		this.launchButton.setText("Click me to launch File Exploration");
 		this.launchButton.setToolTipText("click me to launch the file exploration");
 
 		Color color = this.getDisplay().getSystemColor(SWT.COLOR_CYAN);
 		this.launchButton.setBackground(color);
 
 		GridData gridData = new GridData();
-		gridData.horizontalAlignment = SWT.FILL;
+		gridData.horizontalAlignment = SWT.CENTER;
 		gridData.verticalAlignment = SWT.BEGINNING;
 		gridData.grabExcessHorizontalSpace = false;
 		gridData.grabExcessVerticalSpace = false;

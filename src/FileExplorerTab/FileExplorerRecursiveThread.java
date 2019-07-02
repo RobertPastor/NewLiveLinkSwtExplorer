@@ -11,12 +11,14 @@ import org.eclipse.swt.widgets.ProgressBar;
 import org.eclipse.swt.widgets.Text;
 
 import JExcelApi.Excel2003MaxRowsException;
+import LiveLinkCore.ShellInformationMessage;
 
 public class FileExplorerRecursiveThread extends Thread {
 
 	private static final Logger logger = Logger.getLogger(FileExplorerRecursiveTab.class.getName()); 
 
 
+	private final int maxRowsExcel2003 = 1000;
 	private Composite parentComposite = null;
 	private Display display = null;
 	private File initialFile = null;
@@ -56,6 +58,18 @@ public class FileExplorerRecursiveThread extends Thread {
 			recursiveFileExplorerWrapper (this.initialFile);
 		} catch (Excel2003MaxRowsException | IOException e) {
 			logger.severe(e.getLocalizedMessage());
+			//throw new Excel2003MaxRowsException(warning);
+			this.display.asyncExec( new Runnable() {
+				@Override
+				public void run() {
+					
+					final String warning = "Number of browsed files exceeding EXCEL 2003 limits of 65550 rows";
+
+					new ShellInformationMessage(FileExplorerRecursiveThread.this.parentComposite.getDisplay(),
+							FileExplorerRecursiveThread.this.parentComposite.getShell(),
+							warning);
+				}
+			});
 		}
 	}
 	
@@ -84,32 +98,39 @@ public class FileExplorerRecursiveThread extends Thread {
 
 		// search sub folders and files
 		File[] newFiles = file.listFiles();
-		if (this.browsedFiles.size() > 65550) {
-			throw new Excel2003MaxRowsException("Number of browsed files exceeding EXCEL 2003 limits of 65550 rows");
-		}
-		if (newFiles != null) {
+		if (this.browsedFiles.size() > maxRowsExcel2003) {
+			
+			final String warning = "Number of browsed files exceeding EXCEL 2003 limits of 65550 rows";
 
-			for (int i = 0; i < newFiles.length; i++) {
-				
-				// write the data for the current file
-				logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
-				File nextFile = newFiles[i];
-
-				this.browsedFiles.add(nextFile);
-				
-				// let the other Thread update the GUI...
-				doUpdate(nextFile.getCanonicalPath(), this.browsedFiles.size());
-
-				if (nextFile.isDirectory()) {
-					// write folder name in Status Bar
-
-					// Recursive search of files from this folder
-					recursiveFileExplorerWrapper (newFiles[i]);				
-				}
-			}
+			throw new Excel2003MaxRowsException(warning);
+			
+		
 		} else {
-			logger.info("it is finished");
+			if (newFiles != null) {
+
+				for (int i = 0; i < newFiles.length; i++) {
+					
+					// write the data for the current file
+					logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
+					File nextFile = newFiles[i];
+
+					this.browsedFiles.add(nextFile);
+					
+					// let the other Thread update the GUI...
+					doUpdate(nextFile.getCanonicalPath(), this.browsedFiles.size());
+
+					if (nextFile.isDirectory()) {
+						// write folder name in Status Bar
+
+						// Recursive search of files from this folder
+						recursiveFileExplorerWrapper (newFiles[i]);				
+					}
+				}
+			} else {
+				logger.info("it is finished");
+			}
 		}
+		
 	}
 
 
