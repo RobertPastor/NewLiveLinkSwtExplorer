@@ -45,6 +45,8 @@ public class FileExplorerRecursiveThread extends Thread {
 		this.filesCountText = _filesCountText;
 		
 		this.browsedFiles = new ArrayList<>();
+		// initial add
+		this.browsedFiles.add(this.initialFile);
 	}
 
 	@Override
