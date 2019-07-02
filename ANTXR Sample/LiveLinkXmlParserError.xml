@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+  <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='Coopans &amp; "Naviair" &amp; LFV' id='32985970' modified='2012-02-08T14:37:03' name='11- Engineering &amp; Segment &amp; Data Management' objname='Project' objtype='202' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='32990869' size='2'>
+    <Nickname domain=''></Nickname>
+    <startdate>2011-03-11T08:58:33</startdate>
+    <targetdate/>
+    <mission></mission>
+    <goals></goals>
+    <objectives></objectives>
+    <initiatives></initiatives>
+    <PublicAccess>false</PublicAccess>
+    <InheritParticipants>true</InheritParticipants>
+    <MajorMinorContainer>false</MajorMinorContainer>
+    <Participants>
+      <Coordinators>
+        <Participant domain='' id='9488212' name='TRA-ATM Data managers' type='1'/>
+        <Participant domain='' id='23573315' name='DSA_EIM_LOCAL_BL_ATM_ASE' type='1'/>
+        <Participant domain='' id='32990870' name='Coordinators' type='32990869'/>
+      </Coordinators>
+      <Members>
+        <Participant domain='' id='639919' name='TRA-ATM-not-FRANCE-users' type='1'/>
+        <Participant domain='' id='12353927' name='DSA-AUTO-TR6_TGI-T ' type='1'/>
+        <Participant domain='' id='32985971' name='Coordinators' type='32985970'/>
+        <Participant domain='' id='32990871' name='Members' type='32990869'/>
+      </Members>
+      <Guests>
+        <Participant domain='' id='3882570' name='TRA-ATM Managers' type='1'/>
+      </Guests>
+    </Participants>
+    <Overview numToDisplay='5'>
+      <Section id='715' name='Project Summary'/>
+      <Section id='713' name='My Tasks'/>
+      <Section id='716' name='Sub-Projects'/>
+      <Section id='711' name='Current News'/>
+      <Section id='714' name='Newest Polls'/>
+      <Section id='710' name='Current Milestones'/>
+      <Section id='712' name='Late Tasks'/>
+      <Section id='717' name='Unassigned Tasks'/>
+      <Section id='313' name='Recently Visited Items'/>
+      <Section id='312' name='Most Active Items'/>
+      <Section id='314' name='Documents of Interest'/>
+      <Section id='311' name='Top Picks'/>
+    </Overview>
+    <Navigation enabled='false' menuEnabled='true'>
+    </Navigation>
+    <llnode created='1996-10-21T12:03:58' createdby='12005' createdbyname='BOCHET philippe' description='' id='35011323' mimetype='application/vnd.ms-excel' modified='2011-11-15T15:31:14' name='Platfom4F_TlseRgsCube.xls' objname='Document' objtype='144' ownedby='12005' ownedbyname='BOCHET philippe' parentid='-32985970' size='160256' versionnum='3'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2012-02-08T13:51:45' createdby='12766' createdbyname='VALIDE erick' description='' id='36079759' modified='2012-04-23T16:09:01' name='06 Software Development' objname='Folder' objtype='0' ownedby='12766' ownedbyname='VALIDE erick' parentid='-32985970' size='14'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:32:34' createdby='12396' createdbyname='JULIEN jean-jacques' description='Lisa Darcy' id='32991374' modified='2012-03-20T16:51:29' name='07 Hardware Segment' objname='Folder' objtype='0' ownedby='12766' ownedbyname='VALIDE erick' parentid='-32985970' size='2'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:32:34' createdby='12396' createdbyname='JULIEN jean-jacques' description='Guy Fontaine' id='32991394' modified='2012-02-16T14:42:41' name='08 Logistics' objname='Folder' objtype='0' ownedby='12766' ownedbyname='VALIDE erick' parentid='-32985970' size='2'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32992026' modified='2012-03-30T09:58:55' name='04 System Engineering' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='5'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='Edouard Painchault' id='32992036' modified='2012-03-21T10:07:56' name='09 Safety templates' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='1'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32992037' modified='2011-03-11T09:00:18' name='99_SAFIR_Evidences_SM' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='55'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32985974' modified='2012-02-08T15:53:01' name='10 Quality' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='0'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32985975' modified='2012-03-20T10:50:44' name='01 Engineering Project Management' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='12'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32986013' modified='2012-02-08T15:49:41' name='03 Configuration Management' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='4'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='Under the responsibility of the Data Manager who is the only person authorized to store documents in this folder' id='32986018' modified='2012-05-07T11:25:16' name='02 Data Management Reference' objname='Folder' objtype='0' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='-32985970' size='19'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32992229' mimetype='application/msword' modified='2011-03-11T09:01:13' name='ContentsOfCentreSegment.doc' objname='Document' objtype='144' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='79360' versionnum='6'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='Christian Audigier' id='32992232' modified='2012-02-16T14:40:53' name='05.01 System Integration' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='9'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='Gilles Galzy' id='32992237' modified='2012-02-16T14:41:29' name='05.02 System Validation' objname='Folder' objtype='0' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='4'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2011-03-11T08:59:26' createdby='12396' createdbyname='JULIEN jean-jacques' description='' id='32992245' modified='2011-03-11T08:59:26' name='WPPR' objname='Shortcut' objtype='1' ownedby='12396' ownedbyname='JULIEN jean-jacques' parentid='-32985970' size='0'>
+      <Nickname domain=''></Nickname>
+      <originalnode name='Segment WPPR' path='11- Engineering Segment:01 Engineering Project Management:1.2.5 Segment Management Reporting:Segment WPPR' subtype='0'>32985977</originalnode>
+    </llnode>
+    <llnode created='2011-06-24T08:44:31' createdby='12005' createdbyname='BOCHET philippe' description='' id='35006372' mimetype='application/vnd.ms-excel' modified='2011-11-21T20:53:06' name='4F_Progress.xls' objname='Document' objtype='144' ownedby='12005' ownedbyname='BOCHET philippe' parentid='-32985970' size='1482240' versionnum='5'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2011-10-03T11:19:29' createdby='12766' createdbyname='VALIDE erick' description='' id='35089343' modified='2012-02-08T15:16:44' name='12 COOP-MAPM-EHMIR-OPC Software ' objname='Project' objtype='202' ownedby='12766' ownedbyname='VALIDE erick' parentid='32985970' size='0'>
+      <Nickname domain=''></Nickname>
+      <startdate>2011-10-03T11:18:14</startdate>
+      <targetdate/>
+      <mission></mission>
+      <goals></goals>
+      <objectives></objectives>
+      <initiatives></initiatives>
+      <PublicAccess>false</PublicAccess>
+      <InheritParticipants>true</InheritParticipants>
+      <MajorMinorContainer>false</MajorMinorContainer>
+      <Participants>
+        <Coordinators>
+          <Participant domain='' id='12766' name='T0007241' type='0'/>
+          <Participant domain='' id='276539' name='Administrator' type='1'/>
+          <Participant domain='' id='9488212' name='TRA-ATM Data managers' type='1'/>
+          <Participant domain='' id='23573315' name='DSA_EIM_LOCAL_BL_ATM_ASE' type='1'/>
+          <Participant domain='' id='32985971' name='Coordinators' type='32985970'/>
+        </Coordinators>
+        <Members>
+          <Participant domain='' id='634052' name='AUTO-TR6-TRS-TGI_en_T' type='1'/>
+          <Participant domain='' id='639919' name='TRA-ATM-not-FRANCE-users' type='1'/>
+          <Participant domain='' id='692797' name='TRA-ATM Subcontractors' type='1'/>
+          <Participant domain='' id='3882087' name='TRA-ATM Execom' type='1'/>
+          <Participant domain='' id='3882570' name='TRA-ATM Managers' type='1'/>
+          <Participant domain='' id='6790940' name='TRA-ATM Cooperators' type='1'/>
+          <Participant domain='' id='32985972' name='Members' type='32985970'/>
+          <Participant domain='' id='35089344' name='Coordinators' type='35089343'/>
+        </Members>
+        <Guests>
+          <Participant domain='' id='32985973' name='Guests' type='32985970'/>
+        </Guests>
+      </Participants>
+      <Overview numToDisplay='5'>
+        <Section id='715' name='Project Summary'/>
+        <Section id='713' name='My Tasks'/>
+        <Section id='716' name='Sub-Projects'/>
+        <Section id='711' name='Current News'/>
+        <Section id='714' name='Newest Polls'/>
+        <Section id='710' name='Current Milestones'/>
+        <Section id='712' name='Late Tasks'/>
+        <Section id='717' name='Unassigned Tasks'/>
+        <Section id='313' name='Recently Visited Items'/>
+        <Section id='312' name='Most Active Items'/>
+        <Section id='314' name='Documents of Interest'/>
+        <Section id='311' name='Top Picks'/>
+      </Overview>
+      <Navigation enabled='false' menuEnabled='true'>
+      </Navigation>
+    </llnode>
+    <llnode created='2011-11-09T15:59:08' createdby='12766' createdbyname='VALIDE erick' description='' id='35408195' modified='2012-02-08T15:16:44' name='13 WRAPPER-TLAY-UFFDP Software' objname='Project' objtype='202' ownedby='12766' ownedbyname='VALIDE erick' parentid='32985970' size='0'>
+      <Nickname domain=''></Nickname>
+      <startdate>2011-11-09T15:57:02</startdate>
+      <targetdate/>
+      <mission></mission>
+      <goals></goals>
+      <objectives></objectives>
+      <initiatives></initiatives>
+      <PublicAccess>false</PublicAccess>
+      <InheritParticipants>true</InheritParticipants>
+      <MajorMinorContainer>false</MajorMinorContainer>
+      <Participants>
+        <Coordinators>
+          <Participant domain='' id='12766' name='T0007241' type='0'/>
+          <Participant domain='' id='276539' name='Administrator' type='1'/>
+          <Participant domain='' id='9488212' name='TRA-ATM Data managers' type='1'/>
+          <Participant domain='' id='23573315' name='DSA_EIM_LOCAL_BL_ATM_ASE' type='1'/>
+          <Participant domain='' id='32985971' name='Coordinators' type='32985970'/>
+        </Coordinators>
+        <Members>
+          <Participant domain='' id='634052' name='AUTO-TR6-TRS-TGI_en_T' type='1'/>
+          <Participant domain='' id='639919' name='TRA-ATM-not-FRANCE-users' type='1'/>
+          <Participant domain='' id='692797' name='TRA-ATM Subcontractors' type='1'/>
+          <Participant domain='' id='3882087' name='TRA-ATM Execom' type='1'/>
+          <Participant domain='' id='3882570' name='TRA-ATM Managers' type='1'/>
+          <Participant domain='' id='6790940' name='TRA-ATM Cooperators' type='1'/>
+          <Participant domain='' id='32985972' name='Members' type='32985970'/>
+          <Participant domain='' id='35408196' name='Coordinators' type='35408195'/>
+        </Members>
+        <Guests>
+          <Participant domain='' id='32985973' name='Guests' type='32985970'/>
+        </Guests>
+      </Participants>
+      <Overview numToDisplay='5'>
+        <Section id='715' name='Project Summary'/>
+        <Section id='713' name='My Tasks'/>
+        <Section id='716' name='Sub-Projects'/>
+        <Section id='711' name='Current News'/>
+        <Section id='714' name='Newest Polls'/>
+        <Section id='710' name='Current Milestones'/>
+        <Section id='712' name='Late Tasks'/>
+        <Section id='717' name='Unassigned Tasks'/>
+        <Section id='313' name='Recently Visited Items'/>
+        <Section id='312' name='Most Active Items'/>
+        <Section id='314' name='Documents of Interest'/>
+        <Section id='311' name='Top Picks'/>
+      </Overview>
+      <Navigation enabled='false' menuEnabled='true'>
+      </Navigation>
+    </llnode>
+  </llnode>
+</livelink>

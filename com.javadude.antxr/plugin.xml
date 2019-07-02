@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="com.javadude.antxr"
+   name="Antxr Plug-in"
+   version="0.9.0"
+   provider-name="JavaDude.com"
+   >
+
+   <runtime>
+      <library name="antxr.jar">
+         <export name="*"/>
+      </library>
+      <library name="lib/xmlpull_1_1_3_4b.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <requires>
+   </requires>
+
+</plugin>

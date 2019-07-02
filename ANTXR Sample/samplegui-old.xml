@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<frame title="Sample GUI">
+	<borderLayout>
+		<north>
+			<panel>
+				<borderLayout>
+					<west>
+						<panel>
+							<gridLayout rows="0" cols="1">
+								<label text="Name"/>
+								<label text="Address"/>
+							</gridLayout>
+						</panel>
+					</west>
+					<center>
+						<panel>
+							<gridLayout rows="0" cols="1">
+								<textField />
+								<textField />
+							</gridLayout>
+						</panel>
+					</center>
+				</borderLayout>
+			</panel>
+		</north>			
+		<south>
+			<panel>
+				<flowLayout align="RIGHT">
+					<button text="Ok">
+						<printAction>Done!</printAction>
+					</button>
+					<button text="Cancel">
+						<printAction>Canceled!</printAction>
+					</button>
+				</flowLayout>
+			</panel>
+		</south>
+	</borderLayout>
+</frame>

@@ -1,0 +1,9 @@
+// $ANTXR : people.antxr -> PeopleParserTokenTypes.txt$
+PeopleParser    // output token vocab name
+"<people>"=4
+XML_END_TAG=5
+"<person>"=6
+"<first-name>"=7
+PCDATA=8
+"<last-name>"=9
+OTHER_TAG=10

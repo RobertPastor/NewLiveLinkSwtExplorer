@@ -1,0 +1,9 @@
+// $ANTXR : LiveLink.antxr -> LiveLinkParserTokenTypes.txt$
+LiveLinkParser    // output token vocab name
+"<livelink>"=4
+XML_END_TAG=5
+"<llnode>"=6
+"<originalnode>"=7
+PCDATA=8
+"<uri>"=9
+OTHER_TAG=10

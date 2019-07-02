@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<foo:note 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.w3schools.com sample.xsd"
+	xmlns:foo="http://www.w3schools.com" 
+	id="sampleNote" >
+	<foo:to name="Tove"/>
+	<foo:from name="mikey"/>
+	<foo:heading>Reminder</foo:heading>
+	<foo:body>Don't forget me this weekend!</foo:body>
+</foo:note>

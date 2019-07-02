@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="generated"/>
+	<classpathentry exported="true" kind="lib" path="lib/xercesImpl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xml-apis.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/xmlpull_1_1_3_4b.jar"/>
+	<classpathentry exported="true" kind="lib" path="/com.javadude.antxr/lib/antxr-bootstrap.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Program Files/eclipse/plugins/org.junit_4.11.0.v201303080030/junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/antlr-2.7.5.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

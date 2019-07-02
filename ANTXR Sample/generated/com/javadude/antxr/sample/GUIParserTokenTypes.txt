@@ -1,0 +1,18 @@
+// $ANTXR : GUIParser.antxr -> GUIParserTokenTypes.txt$
+GUIParser    // output token vocab name
+"<frame>"=4
+XML_END_TAG=5
+"<panel>"=6
+"<borderLayout>"=7
+"<north>"=8
+"<south>"=9
+"<east>"=10
+"<west>"=11
+"<center>"=12
+"<flowLayout>"=13
+"<gridLayout>"=14
+"<button>"=15
+"<label>"=16
+"<textField>"=17
+"<printAction>"=18
+PCDATA=19

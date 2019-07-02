@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="test" name="ANTXR Samples">
+	<!--
+		A simple macro to run antxr to generate an xml parser.
+		Nicer than defining a separate task for it, IMHO...
+	-->
+	<macrodef name="antxr">
+		<attribute name="base"/>
+		<attribute name="grammar"/>
+		<sequential>
+			<java classname="com.javadude.antxr.Tool" classpath="lib/antxr.jar">
+				<arg value="-o"/>
+				<arg value="generated/@{base}"/>
+				<arg value="src/@{base}/@{grammar}"/>
+			</java>
+		</sequential>
+	</macrodef>
+	
+	<target name="init">
+        <mkdir dir="build"/>
+        <mkdir dir="generated"/>
+		<mkdir dir="generated/com/javadude/antxr"/>
+		<mkdir dir="generated/com/javadude/antxr/actions/java"/>
+		<mkdir dir="generated/com/javadude/antxr/preprocessor"/>
+    </target>
+    
+	<target name="clean">
+        <delete dir="build"/>
+        <delete dir="generated"/>
+    </target>
+
+    <target name="build" depends="init">
+		<echo>Building ANTXR grammars... Some warnings are expected...</echo>
+		<antxr base="com/javadude/antxr/sample" grammar="GUIParser.antxr"/>
+		<antxr base="com/javadude/antxr/sample" grammar="NoteParser1.antxr"/>
+		<antxr base="com/javadude/antxr/sample" grammar="NoteParser2.antxr"/>
+		<antxr base="com/javadude/antxr/sample" grammar="NoteParser3.antxr"/>
+		<antxr base="com/javadude/antxr/sample" grammar="people.antxr"/>
+		<echo>Compiling java code...</echo>
+        <javac destdir="build">
+            <src path="src"/>
+            <src path="generated"/>
+            <classpath location="lib/xmlpull_1_1_3_4b.jar"/>
+            <classpath location="lib/antxr.jar"/>
+            <classpath location="lib/junit.jar"/>
+        </javac>
+    	<echo>Running Tests</echo>
+   	</target>
+	
+    <target name="test" depends="build">
+    	<java classname="com.javadude.antxr.sample.XMLTest">
+    		<classpath location="bin/" />
+            <classpath location="lib/xmlpull_1_1_3_4b.jar"/>
+            <classpath location="lib/xml-apis.jar"/>
+            <classpath location="lib/xercesImpl.jar"/>
+            <classpath location="lib/junit.jar"/>
+            <classpath location="lib/antxr.jar"/>
+    	</java>
+    </target>
+</project>

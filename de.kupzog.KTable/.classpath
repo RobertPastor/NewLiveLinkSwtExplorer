@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/NewLiveLinkSwtExplorer/lib/swt.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.jface_3.14.0.v20180423-0714.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.ui_3.109.100.v20180426-0903.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

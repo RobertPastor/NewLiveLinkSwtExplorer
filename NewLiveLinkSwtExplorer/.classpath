@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/com.javadude.antxr"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.kupzog.KTable"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ANTXR Sample"/>
+	<classpathentry kind="lib" path="lib/swt.jar"/>
+	<classpathentry kind="lib" path="/com.javadude.antxr/lib/xmlpull_1_1_3_4b.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.core.commands_3.9.100.v20180404-1234.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.core.runtime_3.14.0.v20180417-0825.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.equinox.common_3.10.0.v20180412-1130.jar"/>
+	<classpathentry kind="lib" path="E:/eclipse-photon/plugins/org.eclipse.jface_3.14.0.v20180423-0714.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/JExcelApi"/>
+	<classpathentry kind="lib" path="lib/antlr-2.7.5.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

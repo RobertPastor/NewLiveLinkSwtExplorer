@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<frame>
+		<borderLayout>
+			<north>
+				<button text="North">
+					<printAction>North Pressed</printAction>
+				</button>
+			</north>			
+			<south>
+				<button text="South" >
+					<printAction>South Pressed</printAction>
+				</button>
+			</south>			
+			<east>
+				<button text="East" >
+					<printAction>East Pressed</printAction>
+				</button>
+			</east>			
+			<west>
+				<button text="West" >
+					<printAction>West Pressed</printAction>
+				</button>
+			</west>			
+			<center>
+				<button text="Center" >
+					<printAction>Center Pressed</printAction>
+				</button>
+			</center>			
+		</borderLayout>
+</frame>

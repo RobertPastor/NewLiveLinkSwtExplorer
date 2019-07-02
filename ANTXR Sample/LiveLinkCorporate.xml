@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+  <llnode created='2009-12-09T18:45:30' createdby='1073882' createdbyname='BARDOU Fabien' description='' id='1333817' modified='2012-03-13T16:18:39' name='[CORP] Corporate Engineering' objname='Communauté ' objtype='3030202' ownedby='544929' ownedbyname='AUDION Marc' parentid='6085577' size='0'>
+    <Nickname domain=''>CorporateEngineering</Nickname>
+    <homepage>
+    </homepage>
+    <eLinkName>corporateengineering</eLinkName>
+    <blogHeadlines><![CDATA[{1333826}]]></blogHeadlines>
+    <roles>
+      <role description='' extendedData='A&lt;1,?&gt;' notes='' roleName='Facilitator'>
+      </role>
+      <role description='' extendedData='A&lt;1,?&gt;' notes='' roleName='Gestionnaire des connaissances'>
+      </role>
+      <role description='' extendedData='A&lt;1,?&gt;' notes='' roleName='Membre'>
+      </role>
+      <role description='' extendedData='A&lt;1,?&gt;' notes='' roleName='Guest'>
+      </role>
+      <role description='Toute adhérent Thales de l&apos;AFIS, acteur dansle cadre d&apos;un groupe de travail (projet) ' extendedData='A&lt;1,?&gt;' notes='' roleName='AFIS_WG_acteur'>
+      </role>
+      <role description='Gestionnaires de la communauté Agile' extendedData='A&lt;1,?&gt;' notes='' roleName='Agile WG'>
+      </role>
+    </roles>
+    <calendarEvents>
+      <event endDate='2009-12-21T23:59:59' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=true,&apos;location&apos;=&apos;&apos;&gt;' startDate='2009-12-21T00:00:00' title='Maîtrise système complexes (TRT)'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2009-12-22T15:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2009-12-22T09:00:00' title='Gap analysis review'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event endDate='2010-09-01T23:59:59' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=true,&apos;location&apos;=&apos;&apos;&gt;' startDate='2010-09-01T00:00:00' title='Process Committee'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-09-28T23:59:59' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=true&gt;' startDate='2010-09-28T00:00:00' title='Process Committee'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-09-30T23:59:59' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=true&gt;' startDate='2010-09-30T00:00:00' title='Probasis Engineering Committee'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event details='Prioritisation of identified tasks during kick Off (Neuilly, 2nd of September)&#xA;Schedule and Allocation to members&#xA;Next meetings (5 to be held by End of October)&#xA;Welcome    Anne&#xA;Means&#xA;Tel  +33 (0)1 72 80 36 87&#xA;Sametime connexion URL( connect using &quot;People on line&quot; name and password)  is https://www5.online.thalesgroup.com/stconf.nsf/meeting/d14fbaa683213ec9c12577920063fb32' endDate='2010-09-09T12:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false,&apos;location&apos;=&apos;Elancourt / Salle L2 RC 023-12p&apos;&gt;' startDate='2010-09-09T09:00:00' title='DDQS / SE WG meeting 1'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-10-21T23:59:59' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=true&gt;' startDate='2010-10-21T00:00:00' title='Process Committee'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-09-02T16:34:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-09-02T15:34:00' title='Process Committee'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event details='The collaborative mode is foreseen&#xA;Tel  +33 (0)1 72 80 36 87&#xA;Sametime connexion URL( connect using &quot;People on line&quot; name and password)  is &#xA;https://www5.online.thalesgroup.com/stconf.nsf/meeting/bbb8dac765d94169c125779d00302c5c' endDate='2010-09-16T12:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false,&apos;location&apos;=&apos;Meudon, Elio room&apos;&gt;' startDate='2010-09-16T09:00:00' title='DDQS SE WG meeting 2'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-10-14T12:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-10-14T09:00:00' title='DDQS / SE WG meeting - Meudon -Eliott'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event endDate='2010-10-21T18:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-10-21T14:00:00' title='DDQS/SEWG Meudon - Calvino'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event endDate='2010-11-30T18:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-11-30T16:30:00' title='SE WG Meudon St ExP'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2011-01-04T18:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2011-01-04T14:00:00' title='1rst DDQS SE meeting 2011 / Meudon PM - Happy new year !'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-09-30T18:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-09-30T14:00:00' title='DDQS / SE WG meeting - Meudon-Steinbeck'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-10-27T18:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-10-27T14:00:00' title='DDQS/SE WG - Meudon C2 Cervantes'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event endDate='2010-11-10T12:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-11-10T09:00:00' title='DDQS / SE WG 9th meeting - Meudon Irving'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-10-08T18:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-10-08T14:00:00' title='DDQS / SE WG meeting n°5 / meudon Shakespeare'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2011-01-18T18:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2011-01-18T14:00:00' title='DDQS / SE meeting'>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+        <role>Facilitator</role>
+      </event>
+      <event endDate='2010-09-22T18:30:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-09-22T15:00:00' title='DDQS / SE WG meeting 3 - Meudon/ Shelley'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-11-10T17:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-11-10T09:00:00' title='Process Committee - Weybridge'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2010-12-08T17:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2010-12-08T09:00:00' title='Process Committee - Neuilly'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2011-06-08T17:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2011-06-08T09:00:00' title='CCB DDQS'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2011-04-27T17:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2011-04-27T09:00:00' title='CCB DDQS'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+      <event endDate='2011-07-06T17:00:00' extendedData='A&lt;1,?,&apos;allDayEvent&apos;=false&gt;' startDate='2011-07-06T09:00:00' title='CCB DDQS'>
+        <role>Facilitator</role>
+        <role>Gestionnaire des connaissances</role>
+        <role>Membre</role>
+        <role>Guest</role>
+      </event>
+    </calendarEvents>
+  </llnode>
+</livelink>

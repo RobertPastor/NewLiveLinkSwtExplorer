@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+  <llnode created='2010-01-07T15:26:38' createdby='12095' createdbyname='BEDOUET pascale' description='' id='24178638' modified='2010-01-07T15:27:51' name='Phase 1' objname='Folder' objtype='0' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='15626199' size='15'>
+    <Nickname domain=''></Nickname>
+    <MajorMinorContainer>false</MajorMinorContainer>
+    <llnode created='2009-02-04T10:39:03' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_16 release' id='21077304' mimetype='application/pdf' modified='2010-01-07T15:25:02' name='VDD-ENG-PH1_revC.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='650889' versionnum='2'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-11-27T15:03:54' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_27 release. (For operational transition)' id='23906038' mimetype='application/pdf' modified='2010-01-07T15:27:51' name='VDD-ENG-PH1_revP.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='743554' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2008-10-09T11:09:34' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_9_1 release' id='19568204' mimetype='application/pdf' modified='2010-01-07T15:25:02' name='VDD-ENG-PH1_revB.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='420776' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-05-29T10:00:18' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_21_1 release. (For SAT2)' id='22990476' mimetype='application/pdf' modified='2010-01-07T15:25:07' name='VDD-ENG-PH1_revG.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='748059' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-10-26T14:25:53' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_26_3 release. (For operational transition)' id='23689044' mimetype='application/pdf' modified='2010-01-07T15:27:51' name='VDD-ENG-PH1_revL.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='805365' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-11-27T15:06:00' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_26_4 release. (For operational transition)' id='23915195' mimetype='application/pdf' modified='2010-01-07T15:27:51' name='VDD-ENG-PH1_revN.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='747722' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-11-09T16:54:41' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_26_3 release. (For operational transition). correction of the release in the &quot;changes&quot; page' id='23751584' mimetype='application/pdf' modified='2010-01-07T15:27:51' name='VDD-ENG-PH1_revM.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='790950' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-10-12T15:31:19' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_26 release. (For operational transition)' id='23640333' mimetype='application/pdf' modified='2010-01-07T15:27:50' name='VDD-ENG-PH1_revK.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='797963' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-02-06T18:04:50' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_16 release taking into account customer comments complement' id='21145288' mimetype='application/pdf' modified='2010-01-07T15:25:06' name='VDD-ENG-PH1_revE.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='674972' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-02-06T10:37:22' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_16 release taking into account customer comments' id='21118479' mimetype='application/pdf' modified='2010-01-07T15:25:03' name='VDD-ENG-PH1_revD.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='675210' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2008-03-14T16:13:47' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B1_5 release' id='16413578' mimetype='application/pdf' modified='2010-01-07T15:25:02' name='VDD-ENG-PH1_revA.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='379579' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-07-03T14:47:41' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_23_1 release. (For SAT3)' id='23199788' mimetype='application/pdf' modified='2010-01-07T15:25:07' name='VDD-ENG-PH1_revH.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='801479' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-04-07T10:05:51' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_19 release. (For SAT1)' id='22435698' mimetype='application/pdf' modified='2010-01-07T15:25:06' name='VDD-ENG-PH1_revF.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='684929' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2009-08-25T16:53:03' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B3_25_1 release. (For PAT closure)' id='23413357' mimetype='application/pdf' modified='2010-01-07T15:25:07' name='VDD-ENG-PH1_revJ.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='789982' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2008-02-19T15:48:53' createdby='12095' createdbyname='BEDOUET pascale' description='CAN_B1_4 release' id='16157631' mimetype='application/pdf' modified='2010-01-07T15:25:02' name='VDD-ENG-PH1_rev-.pdf' objname='Document' objtype='144' ownedby='12095' ownedbyname='BEDOUET pascale' parentid='24178638' size='375916' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+  </llnode>
+</livelink>

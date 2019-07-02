@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+  <llnode created='2006-04-27T17:36:09' createdby='12614' createdbyname='PINAULT alain' description='' id='7198663' modified='2010-08-11T09:46:30' name='Industrial Process improvement' objname='Folder' objtype='0' ownedby='12614' ownedbyname='PINAULT alain' parentid='7198833' size='6'>
+    <Nickname domain=''></Nickname>
+    <MajorMinorContainer>false</MajorMinorContainer>
+    <llnode created='2005-03-22T10:03:50' createdby='492326' createdbyname='DUPARC marie-france' description='All material related to Training - Coaching and EPG Newsletters' id='3623409' modified='2009-05-07T14:47:56' name='02 - Information & Training & Communications' objname='Folder' objtype='0' ownedby='248298' ownedbyname='GALLY benoit' parentid='7198663' size='3'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2005-03-22T10:04:41' createdby='492326' createdbyname='DUPARC marie-france' description='This area contains all material to manage the Improvement Actions Plan' id='3623995' modified='2010-01-26T09:04:23' name='01 - Process Improvement Management' objname='Folder' objtype='0' ownedby='248298' ownedbyname='GALLY benoit' parentid='7198663' size='6'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2005-03-22T10:49:06' createdby='492326' createdbyname='DUPARC marie-france' description='' id='3624626' mimetype='application/vnd.ms-excel' modified='2009-05-07T15:10:15' name='EPG_Data Management' objname='Document' objtype='144' ownedby='248298' ownedbyname='GALLY benoit' parentid='7198663' size='17920' versionnum='2'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2003-09-16T16:38:19' createdby='12195' createdbyname='DEGOEYSE Anne (degoeyse.anne (Delete) 12195)' description='EPG Melbourne working area' id='1078194' modified='2009-05-07T14:47:52' name='EPG Melbourne Archive' objname='Folder' objtype='0' ownedby='12195' ownedbyname='DEGOEYSE Anne (degoeyse.anne (Delete) 12195)' parentid='7198663' size='1'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+    <llnode created='2003-10-06T08:50:34' createdby='18491' createdbyname='BERNARD Alain (bernard.alain (Delete) 18491)' description='' id='1116535' mimetype='image/jpeg' modified='2009-05-07T14:47:55' name='CMM-I "La Tribune" 03/10/2003' objname='Document' objtype='144' ownedby='18491' ownedbyname='BERNARD Alain (bernard.alain (Delete) 18491)' parentid='7198663' size='270804' versionnum='1'>
+      <Nickname domain=''></Nickname>
+    </llnode>
+    <llnode created='2005-03-22T10:05:22' createdby='492326' createdbyname='DUPARC marie-france' description='This area contains the Material related to each Improvement Action. Each Improvement Action has a dedicated folder.' id='3624322' modified='2011-12-01T10:17:22' name='03 - Working Group' objname='Folder' objtype='0' ownedby='248298' ownedbyname='GALLY benoit' parentid='7198663' size='24'>
+      <Nickname domain=''></Nickname>
+      <MajorMinorContainer>false</MajorMinorContainer>
+    </llnode>
+  </llnode>
+</livelink>

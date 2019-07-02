@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livelink appversion='9.7.1' src='XmlExport'>
+ <llnode 
+ created="2011-08-05T11:43:33" createdby="12614" createdbyname="PINAULT alain" description="" id="34671158" 
+ modified="2011-08-05T11:43:33" name="SW WP Source" objname="Shortcut" objtype="1" ownedby="12614" 
+ ownedbyname="PINAULT alain" parentid="884642" size="0"> 
+ <Nickname domain="" /> 
+   <originalnode name="01. Guidelines & Procedures" path="THALES:Air Operations Division: 1-Business Lines - Domains:ATM (Air Traffic Management): ATM Engineering:PI (Process & Tools): Process:Industrial & Project Improvement:Books:Software Book:01. Guidelines & Procedures" 
+   subtype="0">483075</originalnode>  
+ </llnode> 
+</livelink>  

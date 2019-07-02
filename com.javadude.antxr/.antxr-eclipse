@@ -1,0 +1,70 @@
+<?xml version='1.0' ?> 
+<settings>
+  <resource name='src/com/javadude/antxr/antlr.antxr'>
+    <property name='traceTreeParser' value='false' />
+    <property name='noTrace' value='true' />
+    <property name='output' value='/com.javadude.antxr/generated/com/javadude/antxr' />
+    <property name='diagnosticOutput' value='false' />
+    <property name='superGrammars' value='' />
+    <property name='docbookOutput' value='false' />
+    <property name='traceLexer' value='false' />
+    <property name='debug' value='false' />
+    <property name='traceParser' value='false' />
+    <property name='normalOuput' value='true' />
+    <property name='trace' value='false' />
+    <property name='generateSmap' value='true' />
+    <property name='htmlOutput' value='false' />
+    <property name='cleanWarnings' value='true' />
+  </resource>
+  <resource name='src/com/javadude/antxr/actions/java/action.antxr'>
+    <property name='traceTreeParser' value='false' />
+    <property name='noTrace' value='true' />
+    <property name='output' value='/com.javadude.antxr/generated/com/javadude/antxr/actions/java' />
+    <property name='diagnosticOutput' value='false' />
+    <property name='superGrammars' value='' />
+    <property name='docbookOutput' value='false' />
+    <property name='traceLexer' value='false' />
+    <property name='debug' value='false' />
+    <property name='traceParser' value='false' />
+    <property name='normalOuput' value='true' />
+    <property name='trace' value='false' />
+    <property name='generateSmap' value='true' />
+    <property name='htmlOutput' value='false' />
+    <property name='cleanWarnings' value='true' />
+  </resource>
+  <resource name='src/com/javadude/antxr/tokdef.antxr'>
+    <property name='traceTreeParser' value='false' />
+    <property name='noTrace' value='true' />
+    <property name='output' value='/com.javadude.antxr/generated/com/javadude/antxr' />
+    <property name='diagnosticOutput' value='false' />
+    <property name='superGrammars' value='' />
+    <property name='docbookOutput' value='false' />
+    <property name='traceLexer' value='false' />
+    <property name='debug' value='false' />
+    <property name='traceParser' value='false' />
+    <property name='normalOuput' value='true' />
+    <property name='trace' value='false' />
+    <property name='generateSmap' value='true' />
+    <property name='htmlOutput' value='false' />
+    <property name='cleanWarnings' value='true' />
+  </resource>
+  <resource name='src/com/javadude/antxr/preprocessor/preproc.antxr'>
+    <property name='traceTreeParser' value='false' />
+    <property name='noTrace' value='true' />
+    <property name='output' value='/com.javadude.antxr/generated/com/javadude/antxr/preprocessor' />
+    <property name='diagnosticOutput' value='false' />
+    <property name='superGrammars' value='' />
+    <property name='docbookOutput' value='false' />
+    <property name='traceLexer' value='false' />
+    <property name='debug' value='false' />
+    <property name='traceParser' value='false' />
+    <property name='normalOuput' value='true' />
+    <property name='trace' value='false' />
+    <property name='generateSmap' value='true' />
+    <property name='htmlOutput' value='false' />
+    <property name='cleanWarnings' value='true' />
+  </resource>
+  <resource name='**ANTXR-ECLIPSE-PLUGIN**'>
+    <property name='pluginVersion' value='2.7.6' />
+  </resource>
+</settings>

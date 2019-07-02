@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<people>
+	<person ssn="111-11-1111">
+		<first-name>Terence</first-name>
+		<last-name>Parr</last-name>
+	</person>
+	<person ssn="222-22-2222">
+		<first-name>Scott</first-name>
+		<last-name>Stanchfield</last-name>
+	</person>
+	<person ssn="333-33-3333">
+		<first-name>James</first-name>
+		<last-name>Stewart</last-name>
+		<sponge>Haha</sponge>
+		<p>This is a <i>nested</i> other tag data</p>
+	</person>
+</people>

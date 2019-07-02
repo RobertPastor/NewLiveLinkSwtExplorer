@@ -1,0 +1,59 @@
+/* ******************************************************************************
+ * Copyright (c) 2005 Scott Stanchfield, http://javadude.com
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *   Based on the ANTLR parser generator by Terence Parr, http://antlr.org
+ *******************************************************************************/
+header {
+package com.javadude.antxr.sample;
+
+import java.util.List;
+import java.util.ArrayList;
+}
+
+class PeopleParser extends Parser;
+
+document returns [List results = null]
+	: results=<people> EOF
+	;
+
+<people> returns [List results = new ArrayList() ]
+	{ Person p; }
+	:	(p=<person>  {results.add(p);} )*
+	;
+
+<person> returns [Person p = new Person() ]
+	{
+		String first, last;
+		p.setSsn(@ssn);
+	}
+	:	(	
+			first=<first-name>
+			{ p.setFirstName(first); }
+		|	
+			last=<last-name>
+			{ p.setLastName(last);   }
+		|	
+			otherTag
+		)*
+	;
+	
+<first-name> returns [String value=null]
+	:	pcdata:PCDATA { value = pcdata.getText(); }
+	;
+	
+<last-name> returns [String value=null]
+	:	pcdata:PCDATA { value = pcdata.getText(); }
+	;
+	
+otherTag
+	:	other:OTHER_TAG
+		(	otherTag
+		|	pcData:PCDATA
+		)*
+		XML_END_TAG
+	;
