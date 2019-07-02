@@ -93,6 +93,7 @@ public class FileExplorerRecursiveThread extends Thread {
 
 	private void writeExcelFile() {
 
+		logger.info("write Excel File");
 		WritableExcelFile writableExcelFile = new WritableExcelFile(this.parentComposite.getDisplay());
 		if (writableExcelFile.create(this.initialFile)) {
 			try {
@@ -102,6 +103,7 @@ public class FileExplorerRecursiveThread extends Thread {
 					writableExcelFile.Close();
 					
 					final String excelFilePath = writableExcelFile.getExcelFilePath();
+					logger.info(excelFilePath);
 					
 					this.display.asyncExec( new Runnable() {
 						@Override
