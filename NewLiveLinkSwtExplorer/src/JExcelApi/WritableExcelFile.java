@@ -1,6 +1,7 @@
 package JExcelApi;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import jxl.write.WritableSheet;
 
@@ -32,11 +33,11 @@ public class WritableExcelFile {
 	private WritableSheet resultSheet = null;
 	private Display display = null;
 
-	public WritableExcelFile(Display display) {
+	public WritableExcelFile(final Display display) {
 		this.display = display;
 	}
 
-	public boolean Create (File parentFile) {
+	public boolean create (final File parentFile) {
 		workbook = new WritableExcelWorkbook("FileExplorer");
 		if (workbook.createWritableWorkbook()) {
 			readMeSheet = workbook.createWritableSheet("ReadMe");
@@ -69,7 +70,7 @@ public class WritableExcelFile {
 		return false;
 	}
 	
-	public boolean WriteFileExplorerRecursive (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
+	public boolean writeFileExplorerRecursive (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("File Explorer");
 			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet,this.display);
@@ -79,12 +80,23 @@ public class WritableExcelFile {
 		return false;
 	}
 
-	public boolean WriteFileExplorer (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
+	public boolean writeFileExplorer (final File selectedFile, final StatusBarObserver statusBarObserver) throws Excel2003MaxRowsException {
 
 		if (workbook != null) {
 			resultSheet = workbook.createWritableSheet("File Explorer");
 			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet,this.display);
 			writableExcelSheet.writeFileExplorer(selectedFile, statusBarObserver);
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean writeFileExplorer (final File selectedFile, final StatusBarObserver statusBarObserver, final ArrayList<File> browsedFiles) throws Excel2003MaxRowsException {
+
+		if (workbook != null) {
+			resultSheet = workbook.createWritableSheet("File Explorer");
+			WritableExcelSheet writableExcelSheet = new WritableExcelSheet(resultSheet, this.display);
+			writableExcelSheet.writeFileExplorer(selectedFile, statusBarObserver, browsedFiles);
 			return true;
 		}
 		return false;

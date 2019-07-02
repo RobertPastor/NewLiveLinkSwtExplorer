@@ -408,9 +408,9 @@ public class FileExplorerTab extends CTabItem {
 						//================================
 						// here new tab from here
 						WritableExcelFile writableExcelFile = new WritableExcelFile(FileExplorerTab.this.parent.getDisplay());
-						if (writableExcelFile.Create(selectedFile)) {
+						if (writableExcelFile.create(selectedFile)) {
 							try {
-								if (writableExcelFile.WriteFileExplorer(selectedFile, FileExplorerTab.this.analysisStatus)) {
+								if (writableExcelFile.writeFileExplorer(selectedFile, FileExplorerTab.this.analysisStatus)) {
 									writableExcelFile.Close();
 									new ShellInformationMessage(FileExplorerTab.this.parent.getDisplay(),
 											FileExplorerTab.this.parent.getShell(),
