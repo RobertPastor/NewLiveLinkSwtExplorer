@@ -55,15 +55,16 @@ public class FileExplorerRecursiveThread extends Thread {
 	public void run() {
 		// run is called by thread start
 		try {
+			// launch recursive file explorer
 			recursiveFileExplorerWrapper (this.initialFile);
 		} catch (Excel2003MaxRowsException | IOException e) {
 			logger.severe(e.getLocalizedMessage());
-			//throw new Excel2003MaxRowsException(warning);
+
 			this.display.asyncExec( new Runnable() {
 				@Override
 				public void run() {
 					
-					final String warning = "Number of browsed files exceeding EXCEL 2003 limits of 65550 rows";
+					final String warning = "Number of browsed files exceeding max rows limit= " + String.valueOf(FileExplorerRecursiveThread.this.maxRowsExcel2003);
 
 					new ShellInformationMessage(FileExplorerRecursiveThread.this.parentComposite.getDisplay(),
 							FileExplorerRecursiveThread.this.parentComposite.getShell(),
@@ -100,8 +101,7 @@ public class FileExplorerRecursiveThread extends Thread {
 		File[] newFiles = file.listFiles();
 		if (this.browsedFiles.size() > maxRowsExcel2003) {
 			
-			final String warning = "Number of browsed files exceeding EXCEL 2003 limits of 65550 rows";
-
+			final String warning = "Number of browsed files exceeding max rows limit= " + (this.maxRowsExcel2003);
 			throw new Excel2003MaxRowsException(warning);
 			
 		
@@ -110,8 +110,11 @@ public class FileExplorerRecursiveThread extends Thread {
 
 				for (int i = 0; i < newFiles.length; i++) {
 					
-					// write the data for the current file
-					logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
+					/**
+					 *  write the data for the current file
+					 *  logger.info(newFiles[i].getName() + " --- " + newFiles[i].isDirectory());
+					 */
+					
 					File nextFile = newFiles[i];
 
 					this.browsedFiles.add(nextFile);
@@ -124,10 +127,10 @@ public class FileExplorerRecursiveThread extends Thread {
 
 						// Recursive search of files from this folder
 						recursiveFileExplorerWrapper (newFiles[i]);				
-					}
+					} 
 				}
 			} else {
-				logger.info("it is finished");
+				logger.info("it is finished - size= "+ this.browsedFiles.size());
 			}
 		}
 		
@@ -139,7 +142,8 @@ public class FileExplorerRecursiveThread extends Thread {
 		this.display.asyncExec( new Runnable() {
 			@Override
 			public void run() {
-				logger.info("--------"+ value + "----------");
+				
+				//logger.info("--------"+ value + "----------");
 				if (! FileExplorerRecursiveThread.this.analysisStatus.isDisposed()) {
 					FileExplorerRecursiveThread.this.analysisStatus.setText(value);
 					FileExplorerRecursiveThread.this.analysisStatus.getParent().layout();
