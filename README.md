@@ -17,7 +17,7 @@ The export data is retrieved in an Excel 2003 file with its limitations of 65550
 One Excel row containing the data of one node.
 
 In order to achieve this goal , the eclipse SWT API is used.
-This API has a Java Web browser (relying on the windows internet explorer if the windows platform) able to extract livelink node information using the XML export feature of a livelink node.
+This API has a Java Web browser (relying on the windows internet explorer of the windows platform) able to extract livelink node information using the XML export feature of a livelink node.
 
 https://www.eclipse.org/swt/
 
