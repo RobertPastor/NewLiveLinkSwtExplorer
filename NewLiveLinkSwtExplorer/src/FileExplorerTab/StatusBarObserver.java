@@ -7,14 +7,12 @@ import java.util.logging.Logger;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 import RecursiveLiveLinkBrowser.LiveLinkNodeKTableCompositeObserver;
-import RecursiveLiveLinkBrowser.OleWebBrowserTab;
 
 
 public class StatusBarObserver extends Composite implements Observer {

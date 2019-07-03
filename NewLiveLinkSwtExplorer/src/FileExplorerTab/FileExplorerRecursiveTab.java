@@ -3,7 +3,6 @@ package FileExplorerTab;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,7 +22,6 @@ import org.eclipse.swt.widgets.Text;
 
 import JExcelApi.Excel2003MaxRowsException;
 import LiveLinkCore.ShellInformationMessage;
-import RecursiveLiveLinkBrowser.NavigationAreaCompositeObserver;
 
 public class FileExplorerRecursiveTab extends CTabItem {
 

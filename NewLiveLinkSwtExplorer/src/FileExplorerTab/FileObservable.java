@@ -20,11 +20,19 @@ public class FileObservable extends Observable {
 	
 	public void setValue(final String filePath) {
 		
-		this.filePath = filePath;
+		this.setFilePath(filePath);
 		// mark as value changed
         setChanged();
         // trigger notification
         notifyObservers();
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
 	}
 
 }

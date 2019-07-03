@@ -56,8 +56,12 @@ public class FileExplorerRecursiveThread extends Thread {
 	public void run() {
 		// run is called by thread start
 		try {
+			// =====================================
 			// launch recursive file explorer
+			// only way to leave the excursion is using Exception
+
 			recursiveFileExplorerWrapper (this.initialFile);
+
 		} catch (Excel2003MaxRowsException | IOException e) {
 			logger.severe(e.getLocalizedMessage());
 
@@ -65,14 +69,19 @@ public class FileExplorerRecursiveThread extends Thread {
 				@Override
 				public void run() {
 
-					final String warning = "Number of browsed files exceeding max rows limit= " + String.valueOf(FileExplorerRecursiveThread.this.maxRowsExcel2003);
+					final String warning = "Number of browsed files exceeding max rows limit= " + (maxRowsExcel2003);
 
 					new ShellInformationMessage(FileExplorerRecursiveThread.this.parentComposite.getDisplay(),
 							FileExplorerRecursiveThread.this.parentComposite.getShell(),
 							warning);
+					// writing file with the above mentioned limits
+					writeExcelFile();
 				}
 			});
+		} catch ( EndOfRecursionException ex ) {
+			writeExcelFile();
 		}
+
 	}
 
 	/**
@@ -101,14 +110,14 @@ public class FileExplorerRecursiveThread extends Thread {
 
 					// creation is OK
 					writableExcelFile.Close();
-					
+
 					final String excelFilePath = writableExcelFile.getExcelFilePath();
 					logger.info(excelFilePath);
-					
+
 					this.display.asyncExec( new Runnable() {
 						@Override
 						public void run() {
-							
+
 							new ShellInformationMessage(FileExplorerRecursiveThread.this.parentComposite.getDisplay(),
 									FileExplorerRecursiveThread.this.parentComposite.getShell(),excelFilePath);	
 						}
@@ -121,25 +130,23 @@ public class FileExplorerRecursiveThread extends Thread {
 						"Error - EXCEL 2003 - row index exceeds max rows number");	
 			}
 		}	
-
 	}
 
 	/**
-	 * recursive explorer
+	 * recursive explorer => only one way to leave the recursion... throw exception
 	 * @param file
 	 * @throws Excel2003MaxRowsException
 	 * @throws IOException
 	 */
-	private void recursiveFileExplorerWrapper (final File file) throws Excel2003MaxRowsException, IOException{
+	private void recursiveFileExplorerWrapper (final File file) throws Excel2003MaxRowsException, EndOfRecursionException, IOException{
 
 		// search sub folders and files
 		File[] newFiles = file.listFiles();
 		if (this.browsedFiles.size() > maxRowsExcel2003) {
 
 			final String warning = "Number of browsed files exceeding max rows limit= " + (maxRowsExcel2003);
-			logger.severe(warning);
-			writeExcelFile();
-
+			logger.info(warning);
+			throw new Excel2003MaxRowsException(warning);
 
 		} else {
 			if (newFiles != null) {
@@ -166,11 +173,14 @@ public class FileExplorerRecursiveThread extends Thread {
 					} 
 				}
 			} else {
-				logger.info("it is finished - size= "+ this.browsedFiles.size());
-				writeExcelFile();
+				String message = "it is finished - size= "+ this.browsedFiles.size();
+				logger.info(message);
+				//writeExcelFile();
+
+				throw new EndOfRecursionException(message);
+
 			}
 		}
-
 	}
 
 

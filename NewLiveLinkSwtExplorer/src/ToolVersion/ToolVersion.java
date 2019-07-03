@@ -86,6 +86,9 @@ public class ToolVersion {
 					
 			new ToolChange("Refresh Node context menu in Livelink Tree",
 				"V0.23 dated 5th May 2019") ,
+			
+			new ToolChange("recursive file explorer redesign",
+				"V0.24 dated 28th June 2019") ,
 					
 
 	};

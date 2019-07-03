@@ -17,6 +17,15 @@ public class GenerateStandardIndexMenuSelectionListener implements SelectionList
 	private static final Logger logger = Logger.getLogger(GenerateStandardIndexMenuSelectionListener.class.getName());
 
 	private Composite parent = null;
+	public Composite getParent() {
+		return parent;
+	}
+
+
+	public CTabFolder getcTabFolder() {
+		return cTabFolder;
+	}
+
 	private CTabFolder cTabFolder = null;
 	private Tree liveLinkNodeTree = null;
 	private RecursiveLiveLinkTreeCompositeObserver parentClass = null;
@@ -50,7 +59,7 @@ public class GenerateStandardIndexMenuSelectionListener implements SelectionList
 					
 					if (selectedItem.getData() instanceof LiveLinkNode) {
 						final LiveLinkNode llSelectedNode = (LiveLinkNode) selectedItem.getData();
-						if (llSelectedNode.isLeaf() == false) {
+						if ( llSelectedNode.isLeaf() == false) {
 							// this node has childrens -> refresh applies
 							logger.log(Level.INFO,"Selected Node is not a Leaf: "+selectedItem.getText());
 							
